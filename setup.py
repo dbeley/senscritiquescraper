@@ -17,7 +17,7 @@ setuptools.setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "get_top_scr_infos=senscritique_scraper.get_top_infos:main"
+            "scr_get_top=senscritique_scraper.scr_get_top:main"
         ]
     },
     classifiers=[

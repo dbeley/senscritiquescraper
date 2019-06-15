@@ -14,6 +14,11 @@ from . import (
 logger = logging.getLogger(__name__)
 
 
+def create_filename_from_url(url):
+    category = get_category_from_url(url)
+    return f"export_{category}_{url.split('/')[-1]}.csv"
+
+
 def get_soup(url):
     return BeautifulSoup(requests.get(url).content, "lxml")
 

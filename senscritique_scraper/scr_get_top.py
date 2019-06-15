@@ -11,24 +11,31 @@ temps_debut = time.time()
 def main():
     args = parse_args()
 
-    url = (
-        args.url
-        if args.url
-        else "https://www.senscritique.com/films/tops/top111"
-    )
-    print(url)
+    if args.main_argument:
+        url = args.main_argument
+    elif args.url:
+        url = args.url
+    else:
+        url = "https://www.senscritique.com/films/tops/top111"
+        logger.info("Using default URL value")
+
+    logger.info("URL : %s", url)
     soup = scr_utils.get_soup(url)
     category = scr_utils.get_category_from_url(url)
+
     chart_infos = scr_utils.get_top_infos(soup, category)
+
     df = pd.DataFrame(chart_infos)
     df = df[scr_utils.get_order(category)]
-    df.to_csv(f"file_{category}.csv", sep="\t", index=False)
+    df.to_csv(scr_utils.create_filename_from_url(url), sep="\t", index=False)
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
 
 def parse_args():
     format = "%(levelname)s :: %(message)s"
-    parser = argparse.ArgumentParser(description="Python skeleton")
+    parser = argparse.ArgumentParser(
+        description="Senscritique scraper for a top list/chart."
+    )
     parser.add_argument(
         "--debug",
         help="Display debugging information",
@@ -38,17 +45,11 @@ def parse_args():
         default=logging.INFO,
     )
     parser.add_argument(
-        "positional_argument", nargs="?", type=str, help="Positional argument"
+        "main_argument", nargs="?", type=str, help="URL to parse"
     )
-    parser.add_argument("-u", "--url", help="URL", type=str)
     parser.add_argument(
-        "-b",
-        "--boolean_flag",
-        help="Boolean flag",
-        dest="boolean_flag",
-        action="store_true",
+        "-u", "--url", help="URL to parse (same as without argument)", type=str
     )
-    parser.set_defaults(boolean_flag=False)
     args = parser.parse_args()
 
     logging.basicConfig(level=args.loglevel, format=format)
