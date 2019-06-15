@@ -1,0 +1,18 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+
+[packages]
+bs4 = "*"
+requests = "*"
+lxml = "*"
+pandas = "*"
+e1839a8 = {editable = true,path = "."}
+senscritique-scraper = {editable = true,path = "."}
+
+[requires]
+python_version = "3.7"
