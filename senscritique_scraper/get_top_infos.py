@@ -21,6 +21,7 @@ def main():
     category = scr_utils.get_category_from_url(url)
     chart_infos = scr_utils.get_top_infos(soup, category)
     df = pd.DataFrame(chart_infos)
+    df = df[scr_utils.get_order(category)]
     df.to_csv(f"file_{category}.csv", sep="\t", index=False)
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
