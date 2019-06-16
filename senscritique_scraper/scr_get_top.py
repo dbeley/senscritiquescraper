@@ -32,7 +32,7 @@ def main():
 
 
 def parse_args():
-    format = "%(levelname)s :: %(message)s"
+    custom_format = "%(levelname)s :: %(message)s"
     parser = argparse.ArgumentParser(
         description="Senscritique scraper for a top list/chart."
     )
@@ -52,7 +52,7 @@ def parse_args():
     )
     args = parser.parse_args()
 
-    logging.basicConfig(level=args.loglevel, format=format)
+    logging.basicConfig(level=args.loglevel, format=custom_format)
     return args
 
 
