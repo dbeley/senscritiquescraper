@@ -131,14 +131,22 @@ def get_genre(row):
 
 def get_producer(row):
     try:
-        producer = ", ".join(
-            [
-                x.text.strip()
-                for x in row.find_all("span", {"class": "elco-baseline-a"})
-            ]
-        )
+        if row.find("span", {"class": "elco-baseline-a"}):
+            producer = ", ".join(
+                [
+                    x.text.strip()
+                    for x in row.find_all("span", {"class": "elco-baseline-a"})
+                ]
+            )
+        else:
+            producer = ", ".join(
+                [
+                    x.text.strip()
+                    for x in row.find_all("a", {"class": "elco-baseline-a"})
+                ]
+            )
     except Exception as e:
-        logger.error(e)
+        logger.error("get_producer : %s", e)
         producer = None
     return producer
 

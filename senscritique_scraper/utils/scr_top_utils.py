@@ -1,6 +1,6 @@
 import logging
 
-from .top_utils import (
+from .row_utils import (
     movies_utils,
     series_utils,
     books_utils,
@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def create_top_filename(url):
     category = get_category_from_url(url)
-    return f"export_{category}_{url.split('/')[-1]}.csv"
+    return f"export_top_{category}_{url.split('/')[-1]}.csv"
 
 
 def get_category_from_url(url):

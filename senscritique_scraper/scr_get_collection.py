@@ -2,7 +2,7 @@ import logging
 import time
 import argparse
 import pandas as pd
-from .utils import scr_utils
+from .utils import scr_utils, scr_collection_utils
 
 logger = logging.getLogger()
 temps_debut = time.time()
@@ -12,28 +12,37 @@ def main():
     args = parse_args()
 
     if args.main_argument:
-        url = args.main_argument
-    elif args.url:
-        url = args.url
+        user = args.main_argument
+    elif args.user:
+        user = args.user
     else:
         logger.error("ERREUR")
         exit()
 
+    url = f"https://www.senscritique.com/{user}/collection/all/all/all/all/all/all/all/all/all/page-1"
     logger.info("URL : %s", url)
-    soup = scr_utils.get_soup(url)
+    try:
+        soup = scr_utils.get_soup(url)
+    except Exception as e:
+        logger.error(e)
+        exit()
 
-    chart_infos = scr_utils.get_collection_infos(soup)
+    chart_infos = scr_collection_utils.get_collection_infos(soup)
 
     df = pd.DataFrame(chart_infos)
-    df = df[scr_utils.get_collection_order()]
-    df.to_csv(scr_utils.create_filename_from_url(url), sep="\t", index=False)
+    # df = df[scr_collection_utils.get_collection_order()]
+    df.to_csv(
+        scr_collection_utils.create_collection_filename(user),
+        sep="\t",
+        index=False,
+    )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
 
 def parse_args():
     custom_format = "%(levelname)s :: %(message)s"
     parser = argparse.ArgumentParser(
-        description="Senscritique scraper for a top list/chart."
+        description="Senscritique scraper for an user collection"
     )
     parser.add_argument(
         "--debug",
@@ -44,10 +53,13 @@ def parse_args():
         default=logging.INFO,
     )
     parser.add_argument(
-        "main_argument", nargs="?", type=str, help="URL to parse"
+        "main_argument", nargs="?", type=str, help="Name of the user"
     )
     parser.add_argument(
-        "-u", "--url", help="URL to parse (same as without argument)", type=str
+        "-u",
+        "--user",
+        help="Name of the user (same as without argument)",
+        type=str,
     )
     args = parser.parse_args()
 
