@@ -48,3 +48,10 @@ def top_row_music():
     soup = scr_utils.get_soup(url)
     row = scr_top_utils.get_rows_from_top(soup)[0]
     return row
+
+
+@pytest.fixture
+def collection_soup():
+    url = "https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1"
+    soup = scr_utils.get_soup(url)
+    return soup

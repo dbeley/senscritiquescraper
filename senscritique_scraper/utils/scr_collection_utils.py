@@ -17,9 +17,13 @@ def create_collection_filename(user):
 
 
 def get_collection_current_page_number(soup):
-    page_number = int(soup.find("span", {"class": "eipa-current"}).text)
-    logger.info("Current collection page number : %s", page_number)
-    return page_number
+    try:
+        page_number = int(soup.find("span", {"class": "eipa-current"}).text)
+        logger.info("Current collection page number : %s", page_number)
+        return page_number
+    except Exception as e:
+        logger.error(e)
+        return None
 
 
 def get_dict_available_pages(soup):
@@ -34,8 +38,9 @@ def get_dict_available_pages(soup):
 def get_next_collection_link(soup):
     available_pages = get_dict_available_pages(soup)
     current_page = get_collection_current_page_number(soup)
-    if available_pages.get(current_page + 1):
-        return available_pages.get(current_page + 1)
+    if current_page:
+        if available_pages.get(current_page + 1):
+            return available_pages.get(current_page + 1)
     return None
 
 
