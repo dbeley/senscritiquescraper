@@ -1,5 +1,7 @@
 # senscritique-scraper
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ee8dea2d8d24e368147fa3337b9acb5)](https://app.codacy.com/app/dbeley/senscritique-scraper?utm_source=github.com&utm_medium=referral&utm_content=dbeley/senscritique-scraper&utm_campaign=Badge_Grade_Dashboard)
+
 Utility to scrap senscritique.com.
 
 - scr_get_top : Scraper for a top list/chart (i.e. Top 111 Films)
