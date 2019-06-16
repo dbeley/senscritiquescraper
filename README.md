@@ -8,6 +8,7 @@ Utility to scrap senscritique.com.
 - scr_get_top : Scraper for a top list/chart (i.e. Top 111 Films)
 - scr_get_collection : Scraper for an user collection (not implemented yet)
 - scr_get_infos_item : Scraper for an item (not implemented yet)
+- scr_get_infos_artist : Scraper for an artist (not implemented yet)
 
 ## Requirements
 

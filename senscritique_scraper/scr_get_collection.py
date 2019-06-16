@@ -2,7 +2,7 @@ import logging
 import time
 import argparse
 import pandas as pd
-from .utils import scr_utils, scr_top_utils
+from .utils import scr_utils
 
 logger = logging.getLogger()
 temps_debut = time.time()
@@ -16,18 +16,17 @@ def main():
     elif args.url:
         url = args.url
     else:
-        url = "https://www.senscritique.com/films/tops/top111"
-        logger.info("Using default URL value")
+        logger.error("ERREUR")
+        exit()
 
     logger.info("URL : %s", url)
     soup = scr_utils.get_soup(url)
-    category = scr_top_utils.get_category_from_url(url)
 
-    chart_infos = scr_top_utils.get_top_infos(soup, category)
+    chart_infos = scr_utils.get_collection_infos(soup)
 
     df = pd.DataFrame(chart_infos)
-    df = df[scr_top_utils.get_top_order(category)]
-    df.to_csv(scr_top_utils.create_top_filename(url), sep="\t", index=False)
+    df = df[scr_utils.get_collection_order()]
+    df.to_csv(scr_utils.create_filename_from_url(url), sep="\t", index=False)
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
 
