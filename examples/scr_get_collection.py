@@ -1,8 +1,7 @@
 import logging
 import time
 import argparse
-import pandas as pd
-from .utils import scr_utils, scr_collection_utils
+from senscritiquescraper import Senscritique
 
 logger = logging.getLogger()
 temps_debut = time.time()
@@ -19,22 +18,10 @@ def main():
         logger.error("ERREUR")
         exit()
 
-    url = f"https://www.senscritique.com/{user}/collection/all/all/all/all/all/all/all/all/all/page-1"
-    logger.info("URL : %s", url)
-    try:
-        soup = scr_utils.get_soup(url)
-    except Exception as e:
-        logger.error(e)
-        exit()
+    user_collection = Senscritique.get_user_collection(user)
 
-    chart_infos = scr_collection_utils.get_collection_infos(soup)
-
-    df = pd.DataFrame(chart_infos)
-    # df = df[scr_collection_utils.get_collection_order()]
-    df.to_csv(
-        scr_collection_utils.create_collection_filename(user),
-        sep="\t",
-        index=False,
+    user_collection.to_csv(
+        Senscritique.create_collection_filename(user), sep="\t", index=False
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 

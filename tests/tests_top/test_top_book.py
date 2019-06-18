@@ -1,4 +1,4 @@
-from senscritique_scraper.utils.row_utils import row_utils
+from senscritiquescraper.utils.row_utils import row_utils
 
 
 def test_book_rank(top_row_book):

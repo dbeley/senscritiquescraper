@@ -1,5 +1,5 @@
 import logging
-from . import scr_utils
+from . import utils
 from .row_utils import (
     movies_utils,
     series_utils,
@@ -10,10 +10,6 @@ from .row_utils import (
 )
 
 logger = logging.getLogger(__name__)
-
-
-def create_collection_filename(user):
-    return f"export_collection_{user}.csv"
 
 
 def get_collection_current_page_number(soup):

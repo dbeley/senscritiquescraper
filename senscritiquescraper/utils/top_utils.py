@@ -12,15 +12,6 @@ from .row_utils import (
 logger = logging.getLogger(__name__)
 
 
-def create_top_filename(url):
-    category = get_category_from_url(url)
-    return f"export_top_{category}_{url.split('/')[-1]}.csv"
-
-
-def get_category_from_url(url):
-    return url.split("/")[3]
-
-
 def get_rows_from_top(soup):
     return soup.find("ol", {"class": "elto-list"}).find_all(
         "li", {"class": "elto-item"}

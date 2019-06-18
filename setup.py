@@ -1,12 +1,12 @@
 import setuptools
-import senscritique_scraper
+import senscritiquescraper
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
     name="senscritique_scraper",
-    version=senscritique_scraper.__version__,
+    version=senscritiquescraper.__version__,
     author="dbeley",
     author_email="dbeley@protonmail.com",
     description="Senscritique scraper",
@@ -15,12 +15,12 @@ setuptools.setup(
     url="https://github.com/dbeley/senscritique_scraper",
     packages=setuptools.find_packages(),
     include_package_data=True,
-    entry_points={
-        "console_scripts": [
-            "scr_get_top=senscritique_scraper.scr_get_top:main",
-            "scr_get_collection=senscritique_scraper.scr_get_collection:main",
-        ]
-    },
+    # entry_points={
+    #     "console_scripts": [
+    #         "scr_get_top=senscritique_scraper.scr_get_top:main",
+    #         "scr_get_collection=senscritique_scraper.scr_get_collection:main",
+    #     ]
+    # },
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: POSIX :: Linux",
