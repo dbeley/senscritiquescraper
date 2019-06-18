@@ -1,6 +1,13 @@
+"""scr_get_collection
+
+This script will export in a csv file an user collection.
+Launch the script with the -h flag to see available options.
+"""
+
 import logging
 import time
 import argparse
+import pandas as pd
 from senscritiquescraper import Senscritique
 
 logger = logging.getLogger()
@@ -19,8 +26,9 @@ def main():
         exit()
 
     user_collection = Senscritique.get_user_collection(user)
+    df_user_collection = pd.DataFrame(user_collection)
 
-    user_collection.to_csv(
+    df_user_collection.to_csv(
         Senscritique.create_collection_filename(user), sep="\t", index=False
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))

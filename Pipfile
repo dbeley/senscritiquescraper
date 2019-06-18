@@ -12,7 +12,7 @@ requests = "*"
 lxml = "*"
 pandas = "*"
 e1839a8 = {editable = true,path = "."}
-senscritique-scraper = {editable = true,path = "."}
+senscritiquescraper = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"

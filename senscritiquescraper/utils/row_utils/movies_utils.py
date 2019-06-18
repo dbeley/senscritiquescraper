@@ -1,10 +1,13 @@
 import logging
 from . import row_utils
+from bs4 import element
+from typing import List, Dict
 
 logger = logging.getLogger(__name__)
 
 
-def get_movies_infos_from_row(row):
+def get_movies_infos_from_row(row: element.Tag) -> Dict:
+    """Returns a dict containing infos for a movie row."""
     return {
         "Rank": row_utils.get_rank(row),
         "Title": row_utils.get_title(row),
@@ -22,7 +25,8 @@ def get_movies_infos_from_row(row):
     }
 
 
-def get_order_movies_columns():
+def get_order_movies_columns() -> List:
+    """Returns the order of columns for movies rows."""
     return [
         "Rank",
         "Title",

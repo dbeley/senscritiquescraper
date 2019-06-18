@@ -1,6 +1,13 @@
+"""scr_get_topchart
+
+This script will export in a csv file a topchart.
+Launch the script with the -h flag to see available options.
+"""
+
 import logging
 import time
 import argparse
+import pandas as pd
 from senscritiquescraper import Senscritique
 
 logger = logging.getLogger()
@@ -18,9 +25,10 @@ def main():
         url = "https://www.senscritique.com/films/tops/top111"
         logger.info("Using default URL value")
 
-    user_collection = Senscritique.get_topchart(url)
+    topchart = Senscritique.get_topchart(url)
+    df_topchart = pd.DataFrame(topchart)
 
-    user_collection.to_csv(
+    df_topchart.to_csv(
         Senscritique.create_topchart_filename(url), sep="\t", index=False
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))

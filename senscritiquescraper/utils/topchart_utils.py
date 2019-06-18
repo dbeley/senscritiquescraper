@@ -1,4 +1,7 @@
 import logging
+from typing import List, Dict
+from bs4 import BeautifulSoup, element
+
 
 from .row_utils import (
     movies_utils,
@@ -12,14 +15,16 @@ from .row_utils import (
 logger = logging.getLogger(__name__)
 
 
-def get_rows_from_top(soup):
+def get_rows_from_topchart(soup: BeautifulSoup) -> List[element.ResultSet]:
+    """Returns a list of rows from a topchart."""
     return soup.find("ol", {"class": "elto-list"}).find_all(
         "li", {"class": "elto-item"}
     )
 
 
-def get_top_infos(soup, category):
-    rows = get_rows_from_top(soup)
+def get_topchart_infos(soup: BeautifulSoup, category: str) -> List[Dict]:
+    """Returns a list of dict containing data of a topchart."""
+    rows = get_rows_from_topchart(soup)
     if category == "films":
         logger.debug("films")
         list_infos = [movies_utils.get_movies_infos_from_row(x) for x in rows]
@@ -46,7 +51,8 @@ def get_top_infos(soup, category):
     return list_infos
 
 
-def get_top_order(category):
+def get_topchart_order(category: str) -> List:
+    """Returns the order of columns for a topchart based on its category."""
     if category == "films":
         logger.debug("films")
         return movies_utils.get_order_movies_columns()
