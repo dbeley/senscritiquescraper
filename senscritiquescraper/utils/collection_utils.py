@@ -44,7 +44,7 @@ def get_next_collection_soup(soup):
     next_col = get_next_collection_link(soup)
     logger.debug("Next collection link : %s", next_col)
     try:
-        soup = scr_utils.get_soup(next_col)
+        soup = utils.get_soup(next_col)
     except Exception as e:
         logger.error(e)
         return None

@@ -1,9 +1,9 @@
 # senscritiquescraper
 
-[![Build Status](https://travis-ci.com/dbeley/senscritique-scraper.svg?branch=master)](https://travis-ci.com/dbeley/senscritique-scraper)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ee8dea2d8d24e368147fa3337b9acb5)](https://app.codacy.com/app/dbeley/senscritique-scraper?utm_source=github.com&utm_medium=referral&utm_content=dbeley/senscritique-scraper&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.com/dbeley/senscritiquescraper.svg?branch=master)](https://travis-ci.com/dbeley/senscritiquescraper)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e95f1fcf5d2e47b480a3ef9c98ce1b1d)](https://www.codacy.com/app/dbeley/senscritiquescraper?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dbeley/senscritiquescraper&amp;utm_campaign=Badge_Grade)
 
-API to scrap senscritique.com.
+API to extract data from senscritique.com.
 
 Some examples of its usage are included in the examples folder.
 

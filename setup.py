@@ -5,22 +5,16 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="senscritique_scraper",
+    name="senscritiquescraper",
     version=senscritiquescraper.__version__,
     author="dbeley",
     author_email="dbeley@protonmail.com",
     description="Senscritique scraper",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/dbeley/senscritique_scraper",
+    url="https://github.com/dbeley/senscritiquescraper",
     packages=setuptools.find_packages(),
     include_package_data=True,
-    # entry_points={
-    #     "console_scripts": [
-    #         "scr_get_top=senscritique_scraper.scr_get_top:main",
-    #         "scr_get_collection=senscritique_scraper.scr_get_collection:main",
-    #     ]
-    # },
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: POSIX :: Linux",
