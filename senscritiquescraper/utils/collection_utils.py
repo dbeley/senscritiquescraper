@@ -49,10 +49,13 @@ def get_next_collection_soup(soup: BeautifulSoup) -> BeautifulSoup:
     """Returns the next BeautifulSoup object for an user collection."""
     next_col = get_next_collection_link(soup)
     logger.debug("Next collection link : %s", next_col)
-    try:
-        soup = utils.get_soup(next_col)
-    except Exception as e:
-        logger.error(e)
+    if next_col:
+        try:
+            soup = utils.get_soup(next_col)
+        except Exception as e:
+            logger.error(e)
+            return None
+    else:
         return None
     return soup
 
