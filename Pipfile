@@ -8,6 +8,7 @@ pytest = "*"
 
 [packages]
 e1839a8 = {editable = true,path = "."}
+senscritiquescraper = {editable = true,path = "."}
 
 [requires]
 python_version = "3.7"
