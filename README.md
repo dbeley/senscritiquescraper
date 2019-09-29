@@ -10,7 +10,7 @@ Some examples of its usage are included in the examples folder.
 ## Requirements
 
 - requests
-- bs4
+- beautifulsoup4
 - lxml
 - pandas
 

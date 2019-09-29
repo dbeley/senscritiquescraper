@@ -27,13 +27,13 @@ def test_music_year(topchart_row_music):
 
 def test_music_release_date(topchart_row_music):
     release_date = row_utils.get_baseline_0(topchart_row_music)
-    if release_date != "Sortie : 24 mars 1973":
+    if release_date != "Sortie : 23 mars 1973":
         raise AssertionError()
 
 
 def test_music_genre(topchart_row_music):
     genre = row_utils.get_baseline_1(topchart_row_music)
-    if genre != "Prog rock et rock":
+    if genre != "Art rock et prog rock":
         raise AssertionError()
 
 

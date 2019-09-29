@@ -63,7 +63,7 @@ def test_series_author(topchart_row_series):
 
 def test_series_description(topchart_row_series):
     description = row_utils.get_description(topchart_row_series)
-    if not description.startswith("La vie de Walter White"):
+    if not description.startswith("Walter White, 50 ans, est professeur"):
         raise AssertionError()
 
 
