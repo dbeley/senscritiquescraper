@@ -49,6 +49,7 @@ def get_next_list_work_link(soup: BeautifulSoup) -> str:
 def get_next_list_work_soup(soup: BeautifulSoup) -> BeautifulSoup:
     """Returns the next BeautifulSoup object for an user list_work."""
     next_col = get_next_list_work_link(soup)
+    soup.decompose()
     logger.debug("Next list_work link : %s", next_col)
     if next_col:
         try:
@@ -66,7 +67,8 @@ def get_rows_from_list_work(soup: BeautifulSoup) -> List[element.ResultSet]:
     logger.debug("get_rows_from_list_work")
     list_rows = []
     while True:
-        list_rows += soup.find_all("li", {"class": "elpr-item"})
+        for row in soup.find_all("li", {"class": "elpr-item"}):
+            list_rows.append(get_row_infos(row))
         soup = get_next_list_work_soup(soup)
         if not soup:
             logger.debug(
@@ -79,10 +81,10 @@ def get_rows_from_list_work(soup: BeautifulSoup) -> List[element.ResultSet]:
 def get_list_work_infos(soup: BeautifulSoup) -> List[Dict]:
     """Returns a list of dict containing an user list_work information."""
     rows = get_rows_from_list_work(soup)
-    list_infos = []
-    for index, row in enumerate(rows, 1):
-        list_infos.append(get_row_infos(row))
-    return list_infos
+    # list_infos = []
+    # for index, row in enumerate(rows, 1):
+    #     list_infos.append(get_row_infos(row))
+    return rows
 
 
 def get_list_work_order():

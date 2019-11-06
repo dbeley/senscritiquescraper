@@ -47,7 +47,9 @@ def parse_args():
         const=logging.DEBUG,
         default=logging.INFO,
     )
-    parser.add_argument("main_argument", nargs="?", type=str, help="URL")
+    parser.add_argument(
+        "main_argument", nargs="?", type=str, help="URL to parse."
+    )
     parser.add_argument(
         "-u", "--url", help="URL to parse (same as without argument)", type=str
     )
