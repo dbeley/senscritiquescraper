@@ -1,6 +1,6 @@
-"""scr_get_collection
+"""scr_get_survey
 
-This script will export in a csv file an user collection.
+This script will export in a csv file a survey.
 Launch the script with the -h flag to see available options.
 """
 
@@ -18,18 +18,18 @@ def main():
     args = parse_args()
 
     if args.main_argument:
-        user = args.main_argument
-    elif args.user:
-        user = args.user
+        url = args.main_argument
+    elif args.url:
+        url = args.url
     else:
-        logger.error("ERREUR")
+        logger.error("No url set.")
         exit()
 
-    user_collection = Senscritique.get_user_collection(user)
-    df_user_collection = pd.DataFrame(user_collection)
+    survey = Senscritique.get_survey(url)
+    df_survey = pd.DataFrame(survey)
 
-    df_user_collection.to_csv(
-        Senscritique.create_collection_filename(user), sep="\t", index=False
+    df_survey.to_csv(
+        Senscritique.create_survey_filename(url), sep="\t", index=False
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
@@ -37,7 +37,7 @@ def main():
 def parse_args():
     custom_format = "%(levelname)s :: %(message)s"
     parser = argparse.ArgumentParser(
-        description="Senscritique scraper for an user collection."
+        description="Senscritique scraper for a survey."
     )
     parser.add_argument(
         "--debug",
@@ -48,13 +48,10 @@ def parse_args():
         default=logging.INFO,
     )
     parser.add_argument(
-        "main_argument", nargs="?", type=str, help="Name of the user"
+        "main_argument", nargs="?", type=str, help="URL to parse"
     )
     parser.add_argument(
-        "-u",
-        "--user",
-        help="Name of the user (same as without argument)",
-        type=str,
+        "-u", "--url", help="URL to parse (same as without argument)", type=str
     )
     args = parser.parse_args()
 

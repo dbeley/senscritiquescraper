@@ -55,3 +55,10 @@ def collection_soup():
     url = "https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1"
     soup = utils.get_soup(url)
     return soup
+
+
+@pytest.fixture
+def survey_soup():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_films_francais/429176"
+    soup = utils.get_soup(url)
+    return soup
