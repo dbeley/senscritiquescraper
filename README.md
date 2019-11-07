@@ -8,18 +8,18 @@ API to extract data from senscritique.com.
 Some examples of its usage are included in the examples folder.
 
 Examples of what's extractable :
-  - topchart : https://www.senscritique.com/films/tops/top111
-  - collection : https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1
-  - survey : https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802
-  - list_work : https://www.senscritique.com/films/oeuvres
+- topchart : [https://www.senscritique.com/films/tops/top111]
+- collection : [https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1]
+- survey : [https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802]
+- list_work : [https://www.senscritique.com/films/oeuvres]
 
 The "list_work" urls are difficult to find, here are the one for each genre where you can access all the subgenres :
-  - https://www.senscritique.com/films/oeuvres
-  - https://www.senscritique.com/series/oeuvres
-  - https://www.senscritique.com/jeuxvideo/oeuvres
-  - https://www.senscritique.com/livres/oeuvres
-  - https://www.senscritique.com/bd/oeuvres
-  - https://www.senscritique.com/musique/oeuvres
+- [https://www.senscritique.com/films/oeuvres]
+- [https://www.senscritique.com/series/oeuvres]
+- [https://www.senscritique.com/jeuxvideo/oeuvres]
+- [https://www.senscritique.com/livres/oeuvres]
+- [https://www.senscritique.com/bd/oeuvres]
+- [https://www.senscritique.com/musique/oeuvres]
 
 
 ## Requirements
