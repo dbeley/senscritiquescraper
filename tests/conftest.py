@@ -1,5 +1,5 @@
 import pytest
-from senscritiquescraper.utils import utils, topchart_utils
+from senscritiquescraper.utils import utils, topchart_utils, work_utils
 
 
 @pytest.fixture
@@ -62,3 +62,17 @@ def survey_soup():
     url = "https://www.senscritique.com/top/resultats/Les_meilleurs_films_francais/429176"
     soup = utils.get_soup(url)
     return soup
+
+
+@pytest.fixture
+def list_work_soup():
+    url = "https://www.senscritique.com/series/oeuvres/Sitcom--14557"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture
+def work_object():
+    url = "https://www.senscritique.com/film/Le_Chant_du_loup/24182360"
+    work = work_utils.Work(url)
+    return work

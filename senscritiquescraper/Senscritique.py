@@ -5,6 +5,7 @@ from .utils import (
     topchart_utils,
     survey_utils,
     list_work_utils,
+    work_utils,
 )
 from typing import List, Dict
 
@@ -161,3 +162,16 @@ def create_list_work_filename(url: str, ext: str = "csv") -> str:
     """Return a filename for a list of work."""
     category = get_category_from_topchart_url(url)
     return f"export_listwork_{category}_{url.split('/')[-1]}.{ext}"
+
+
+def get_work_details(url: str) -> Dict:
+    """Extract details about a work regardless of its category.
+
+    Returns:
+        Dictionary containing the work details.
+    """
+
+    logger.info("URL : %s", url)
+
+    work = work_utils.Work(url)
+    return work.get_work_details()

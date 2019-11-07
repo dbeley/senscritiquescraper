@@ -81,9 +81,6 @@ def get_rows_from_list_work(soup: BeautifulSoup) -> List[element.ResultSet]:
 def get_list_work_infos(soup: BeautifulSoup) -> List[Dict]:
     """Returns a list of dict containing an user list_work information."""
     rows = get_rows_from_list_work(soup)
-    # list_infos = []
-    # for index, row in enumerate(rows, 1):
-    #     list_infos.append(get_row_infos(row))
     return rows
 
 
@@ -104,42 +101,36 @@ def get_row_infos(row: element.Tag) -> Dict:
         logger.debug("films")
         row_info = {
             **movies_utils.get_movies_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Movie"},
         }
     elif category == "serie":
         logger.debug("series")
         row_info = {
             **series_utils.get_series_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Series"},
         }
     elif category == "jeuvideo":
         logger.debug("jeuxvideo")
         row_info = {
             **videogames_utils.get_videogames_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Video Game"},
         }
     elif category == "livre":
         logger.debug("livres")
         row_info = {
             **books_utils.get_books_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Book"},
         }
     elif category == "bd":
         logger.debug("bd")
         row_info = {
             **comics_utils.get_comics_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Comics"},
         }
     elif category == "album":
         logger.debug("musique")
         row_info = {
             **music_utils.get_music_infos_from_row(row),
-            # **get_complementary_infos_list_work(row),
             **{"Category": "Music"},
         }
     else:
@@ -148,28 +139,3 @@ def get_row_infos(row: element.Tag) -> Dict:
     row_info.pop("Description", None)
     row_info.pop("Rank", None)
     return row_info
-
-
-def get_complementary_infos_list_work(row: element.Tag) -> Dict:
-    """Get information specific to a list_work row."""
-    action = row.find("div", {"class": "elco-collection-rating user"}).find(
-        "span", {"class": "elrua-useraction-inner only-child"}
-    )
-
-    dict_infos = {}
-    if action.find("span", {"class": "eins-wish-list"}):
-        dict_infos["User Action"] = "Wishlisted"
-    elif action.find("span", {"class": "eins-current"}):
-        dict_infos["User Action"] = "In Progress"
-    else:
-        dict_infos["User Action"] = "Rated"
-
-    dict_infos["Recommended"] = (
-        True
-        if action.find("span", {"class": "eins-user-recommend"})
-        else False
-    )
-
-    dict_infos["User Rating"] = action.text.strip()
-    logger.debug(dict_infos)
-    return dict_infos
