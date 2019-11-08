@@ -1,6 +1,5 @@
 import logging
 from typing import List, Dict
-from bs4 import BeautifulSoup, element
 from . import utils
 
 
@@ -13,11 +12,6 @@ class Work:
         self.category = self.get_category()
 
     def export(self):
-        # row_info = {
-        #     **movies_utils.get_movies_infos_from_row(row),
-        #     **get_complementary_infos_collection(row),
-        #     **{"Category": "Movie"},
-        # }
         return {
             **{
                 "Title": self.title,
