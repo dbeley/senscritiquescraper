@@ -174,4 +174,4 @@ def get_work_details(url: str) -> Dict:
     logger.info("URL : %s", url)
 
     work = work_utils.Work(url)
-    return work.get_work_details()
+    return work.get_details()
