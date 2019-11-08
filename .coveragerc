@@ -1,6 +1,8 @@
 [run]
 branch = True
 source = senscritiquescraper
+fixes:
+	- "::senscritique/"
 
 [report]
 exclude_lines =
@@ -14,4 +16,5 @@ omit =
     senscritiquescraper/__init__.py
     tests/*
     setup.py
+    examples/*
 
