@@ -12,6 +12,7 @@ Examples of what's extractable :
 - collection : <https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
 - survey : <https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>
 - list_work : <https://www.senscritique.com/films/oeuvres>
+- work : <https://www.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
 
 The "list_work" urls are difficult to find, here are the one for each genre where you can access all the subgenres :
 - <https://www.senscritique.com/films/oeuvres>
@@ -43,6 +44,10 @@ Show the help and the available options.
 python scr_get_topchart.py -h
 ```
 
+Some scripts using the API are provided in the examples folder.
+
+### scr_get_topchart
+
 ```
 usage: scr_get_topchart [-h] [--debug] [-u URL] [main_argument]
 
@@ -56,6 +61,8 @@ optional arguments:
   --debug            Display debugging information
   -u URL, --url URL  URL to parse (same as without argument)
 ```
+
+### scr_get_collection
 
 ```
 python scr_get_collection.py -h
@@ -75,6 +82,8 @@ optional arguments:
   -u USER, --user USER  Name of the user (same as without argument)
 ```
 
+### scr_get_survey
+
 ```
 python scr_get_survey.py -h
 ```
@@ -93,6 +102,8 @@ optional arguments:
   -u URL, --url URL  URL to parse (same as without argument)
 ```
 
+### scr_get_list_work
+
 ```
 python scr_get_list_work.py -h
 ```
@@ -109,4 +120,25 @@ optional arguments:
   -h, --help         show this help message and exit
   --debug            Display debugging information
   -u URL, --url URL  URL to parse (same as without argument)
+```
+
+### scr_get_work_details
+
+```
+python scr_get_work_details.py -h
+```
+
+```
+usage: scr_get_work_details.py [-h] [--debug] [-f FILE] [main_argument]
+
+This script will export in a csv file one or several works from senscritique.
+The -f option will use the 'URL' field of a csv file.
+
+positional arguments:
+  main_argument         File to parse.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Display debugging information
+  -f FILE, --file FILE  File to parse.
 ```

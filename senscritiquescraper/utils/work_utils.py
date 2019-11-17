@@ -208,4 +208,4 @@ class Work:
                 }
         except Exception as e:
             logger.error("Function get_complementary_infos : %s.", e)
-            return None
+            return {}
