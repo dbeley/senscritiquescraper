@@ -7,7 +7,7 @@ API to extract data from senscritique.com.
 
 Some examples of its usage are included in the examples folder.
 
-Examples of what's extractable :
+Examples of what can be extracted :
 - topchart : <https://www.senscritique.com/films/tops/top111>
 - collection : <https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
 - survey : <https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>

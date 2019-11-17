@@ -1,4 +1,4 @@
-"""scr_get_work
+"""scr_get_work_details
 
 This script will export in a csv file one or several works from senscritique.
 The -f option will use the "URL" field of a csv file.
@@ -31,7 +31,6 @@ def main():
     list_work_details = []
     for index, row in df.iterrows():
         if work_details := Senscritique.get_work_details(row["URL"]):
-            # list_work_details.append(Senscritique.get_work_details(row['URL']))
             list_work_details.append(work_details)
 
     df_topchart = pd.DataFrame(list_work_details)
@@ -43,7 +42,7 @@ def main():
 def parse_args():
     custom_format = "%(levelname)s :: %(message)s"
     parser = argparse.ArgumentParser(
-        description="This script will export in a csv file one or several works from senscritique. The -f option will use the 'URL' field of a csv file."
+        description="This script will export in a csv file one or several works from senscritique contained in a csv file (it will use the 'URL' field)."
     )
     parser.add_argument(
         "--debug",
