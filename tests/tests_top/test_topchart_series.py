@@ -51,7 +51,7 @@ def test_series_cover(topchart_row_series):
 
 def test_series_genre(topchart_row_series):
     genre = row_utils.get_genre(topchart_row_series)
-    if genre != "Thriller, policier et drame":
+    if genre != "Policier, drame et thriller":
         raise AssertionError()
 
 
