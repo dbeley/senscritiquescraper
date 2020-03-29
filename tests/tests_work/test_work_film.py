@@ -13,7 +13,7 @@ def test_rating_work_film(work_object_film):
     if not isinstance(main_rating, str):
         raise AssertionError()
 
-    if not main_rating == "7.4":
+    if not main_rating == "7.3":
         raise AssertionError()
 
 
