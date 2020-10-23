@@ -13,7 +13,7 @@ def test_rating_work_livre(work_object_livre):
     if not isinstance(main_rating, str):
         raise AssertionError()
 
-    if not main_rating == "6.0":
+    if not main_rating == "5.9":
         raise AssertionError()
 
 

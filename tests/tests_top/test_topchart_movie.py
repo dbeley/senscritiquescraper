@@ -63,7 +63,7 @@ def test_movie_author(topchart_row_movie):
 
 def test_movie_description(topchart_row_movie):
     description = row_utils.get_description(topchart_row_movie)
-    if not description.startswith("La vie"):
+    if not description.startswith("Insomniaque"):
         raise AssertionError()
 
 

@@ -28,7 +28,7 @@ def test_rating_details_work_serie(work_object_serie):
 
 def test_title_work_serie(work_object_serie):
     title = work_object_serie.get_title()
-    if not title == "The Handmaid’s Tale":
+    if not title == "The Handmaid's Tale : La Servante écarlate":
         raise AssertionError()
 
 
@@ -45,7 +45,7 @@ def test_cover_url_work_serie(work_object_serie):
 
     if (
         not cover_url
-        == "https://media.senscritique.com/media/000016967455/160/The_Handmaid_s_Tale.jpg"
+        == "https://media.senscritique.com/media/000016972804/160/The_Handmaid_s_Tale_La_Servante_ecarlate.jpg"
     ):
         raise AssertionError()
 
