@@ -82,9 +82,7 @@ class Work:
 
     def get_vote_count(self):
         try:
-            return self.soup.find("meta", {"itemprop": "ratingCount"})[
-                "content"
-            ]
+            return self.soup.find("meta", {"itemprop": "ratingCount"})["content"]
         except Exception as e:
             logger.error("Function get_vote_count : %s.", e)
             return None
@@ -92,9 +90,7 @@ class Work:
     def get_favorite_count(self):
         try:
             favorite_count = (
-                self.soup.find("li", {"title": "Coups de coeur"})
-                .find("b")
-                .text
+                self.soup.find("li", {"title": "Coups de coeur"}).find("b").text
             )
             return utils.format_number(favorite_count)
         except Exception as e:
@@ -103,9 +99,7 @@ class Work:
 
     def get_wishlist_count(self):
         try:
-            wishlist_count = (
-                self.soup.find("li", {"title": "Envies"}).find("b").text
-            )
+            wishlist_count = self.soup.find("li", {"title": "Envies"}).find("b").text
             return utils.format_number(wishlist_count)
         except Exception as e:
             logger.error("Function get_wishlist_count : %s.", e)
@@ -123,9 +117,7 @@ class Work:
 
     def get_title(self) -> str:
         try:
-            return self.soup.find(
-                "h1", {"class": "pvi-product-title"}
-            ).text.strip()
+            return self.soup.find("h1", {"class": "pvi-product-title"}).text.strip()
         except Exception as e:
             logger.error("Function get_title : %s.", e)
             return None
@@ -150,9 +142,7 @@ class Work:
 
     def get_review_count(self) -> str:
         try:
-            return self.soup.find("meta", {"itemprop": "reviewCount"})[
-                "content"
-            ]
+            return self.soup.find("meta", {"itemprop": "reviewCount"})["content"]
         except Exception as e:
             logger.error("Function get_review_count : %s.", e)
             return None

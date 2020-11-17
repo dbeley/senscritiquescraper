@@ -13,7 +13,7 @@ def test_rating_work_album(work_object_album):
     if not isinstance(main_rating, str):
         raise AssertionError()
 
-    if not main_rating == "7.5":
+    if not main_rating == "7.6":
         raise AssertionError()
 
 
