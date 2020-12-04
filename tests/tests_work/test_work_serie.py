@@ -46,6 +46,7 @@ def test_cover_url_work_serie(work_object_serie):
     if (
         not cover_url
         == "https://media.senscritique.com/media/000016972804/160/The_Handmaid_s_Tale_La_Servante_ecarlate.jpg"
+        # == "https://media.senscritique.com/media/000016967455/160/The_Handmaid_s_Tale_La_Servante_ecarlate.jpg"
     ):
         raise AssertionError()
 

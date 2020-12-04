@@ -28,8 +28,7 @@ def get_collection_current_page_number(soup: BeautifulSoup) -> int:
 def get_dict_available_pages(soup: BeautifulSoup) -> Dict[int, str]:
     """Returns a dict of the available pages in a BeautifulSoup object."""
     dict_links = {
-        int(x["data-sc-pager-page"]): "https://www.senscritique.com"
-        + x["href"]
+        int(x["data-sc-pager-page"]): "https://www.senscritique.com" + x["href"]
         for x in soup.find_all("a", {"class": "eipa-anchor"})
     }
     return dict_links
@@ -80,7 +79,9 @@ def get_collection_infos(soup: BeautifulSoup) -> List[Dict]:
     rows = get_rows_from_collection(soup)
     list_infos = []
     for index, row in enumerate(rows, 1):
-        list_infos.append(get_row_infos(row))
+        info = get_row_infos(row)
+        if info:
+            list_infos.append(info)
     return list_infos
 
 
@@ -162,9 +163,7 @@ def get_complementary_infos_collection(row: element.Tag) -> Dict:
         dict_infos["User Action"] = "Rated"
 
     dict_infos["Recommended"] = (
-        True
-        if action.find("span", {"class": "eins-user-recommend"})
-        else False
+        True if action.find("span", {"class": "eins-user-recommend"}) else False
     )
 
     dict_infos["User Rating"] = action.text.strip()

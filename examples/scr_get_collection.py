@@ -47,9 +47,7 @@ def parse_args():
         const=logging.DEBUG,
         default=logging.INFO,
     )
-    parser.add_argument(
-        "main_argument", nargs="?", type=str, help="Name of the user"
-    )
+    parser.add_argument("main_argument", nargs="?", type=str, help="Name of the user")
     parser.add_argument(
         "-u",
         "--user",
