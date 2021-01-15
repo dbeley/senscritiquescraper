@@ -1,6 +1,6 @@
 # senscritiquescraper
 
-[![Build Status](https://travis-ci.com/dbeley/senscritiquescraper.svg?branch=master)](https://travis-ci.com/dbeley/senscritiquescraper)
+![Build Status](https://github.com/dbeley/senscritiquescraper/workflows/CI/badge.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e95f1fcf5d2e47b480a3ef9c98ce1b1d)](https://www.codacy.com/app/dbeley/senscritiquescraper?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dbeley/senscritiquescraper&amp;utm_campaign=Badge_Grade)
 
 API to extract data from senscritique.com.

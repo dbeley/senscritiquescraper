@@ -5,3 +5,4 @@ build/
 tags
 *.csv
 *.ods
+__pycache__

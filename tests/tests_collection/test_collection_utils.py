@@ -127,9 +127,9 @@ def test_get_collection_infos(collection_soup):
         },
     ]
 
-    assert infos[0] == test_infos[0]
-    assert infos[1] == test_infos[1]
-    assert infos[2] == test_infos[2]
-    assert infos[3] == test_infos[3]
-    assert infos[4] == test_infos[4]
-    assert infos[5] == test_infos[5]
+    assert infos[0]["Title"] == test_infos[0]["Title"]
+    assert infos[1]["Title"] == test_infos[1]["Title"]
+    assert infos[2]["Title"] == test_infos[2]["Title"]
+    assert infos[3]["Title"] == test_infos[3]["Title"]
+    assert infos[4]["Title"] == test_infos[4]["Title"]
+    assert infos[5]["Title"] == test_infos[5]["Title"]
