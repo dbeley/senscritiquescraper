@@ -1,10 +1,11 @@
 import logging
 from .utils import (
-    utils,
     collection_utils,
-    topchart_utils,
-    survey_utils,
     list_work_utils,
+    search_utils,
+    survey_utils,
+    topchart_utils,
+    utils,
     work_utils,
 )
 from typing import List, Dict
@@ -175,3 +176,24 @@ def get_work_details(url: str) -> Dict:
 
     work = work_utils.Work(url)
     return work.get_details()
+
+
+def get_url(search_term: str, rank: int = 1) -> str:
+    """Return the first result URL for the search term.
+    Rank can be changed (default 1: first result).
+
+    Returns:
+        URL of the first result.
+    """
+
+    logger.info("Search term: %s", search_term)
+
+    url = search_utils.get_search_url(search_term)
+
+    try:
+        soup = utils.get_soup(url)
+    except Exception as e:
+        logger.error(e)
+        exit()
+
+    return search_utils.get_search_result(soup, 1)

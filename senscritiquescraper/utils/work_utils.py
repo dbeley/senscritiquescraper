@@ -112,7 +112,7 @@ class Work:
             )
             return utils.format_number(in_progress_count)
         except Exception as e:
-            logger.error("Function get_in_progress_count : %s.", e)
+            logger.warning("Function get_in_progress_count : %s.", e)
             return None
 
     def get_title(self) -> str:

@@ -5,16 +5,14 @@
 
 API to extract data from senscritique.com.
 
-Some examples of its usage are included in the examples folder.
+Example of what can be extracted:
+- topchart: <https://www.senscritique.com/films/tops/top111>
+- collection: <https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
+- survey: <https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>
+- list_work: <https://www.senscritique.com/films/oeuvres>
+- work: <https://www.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
 
-Examples of what can be extracted :
-- topchart : <https://www.senscritique.com/films/tops/top111>
-- collection : <https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
-- survey : <https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>
-- list_work : <https://www.senscritique.com/films/oeuvres>
-- work : <https://www.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
-
-The "list_work" urls are difficult to find, here are the one for each genre where you can access all the subgenres :
+The "list_work" urls are difficult to find, here are the one for each genre where the subgenres can be accessed:
 - <https://www.senscritique.com/films/oeuvres>
 - <https://www.senscritique.com/series/oeuvres>
 - <https://www.senscritique.com/jeuxvideo/oeuvres>
@@ -22,6 +20,13 @@ The "list_work" urls are difficult to find, here are the one for each genre wher
 - <https://www.senscritique.com/bd/oeuvres>
 - <https://www.senscritique.com/musique/oeuvres>
 
+Some examples of the API usage are included in the examples folder:
+- `scr_get_collection.py`: Extract the collection of an user.
+- `scr_get_get_list_work.py`: Extract a list of work.
+- `scr_get_get_survey.py`: Extract the results of a survey.
+- `scr_get_get_topchart.py`: Extract the results of a topchart.
+- `scr_get_get_work_details.py`: Extract infos about a list of Senscritique urls.
+- `scr_get_get_work_urls.py`: From a list of search terms in a text file, extract the urls of the first result on Senscritique for each term.
 
 ## Requirements
 
@@ -30,10 +35,24 @@ The "list_work" urls are difficult to find, here are the one for each genre wher
 - lxml
 - pandas
 
-## Installation in a virtualenv (recommended)
+## Installation
+
+### First method (installing the senscritiquescraper package)
 
 ```
+git clone https://github.com/dbeley/senscritiquescraper
+cd senscritiquescraper
+python setup.py install
+python examples/scr_get_work_urls.py -h
+```
+
+### Second method (installing with pipenv)
+
+```
+git clone https://github.com/dbeley/senscritiquescraper
+cd senscritiquescraper
 pipenv install '-e .'
+pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ## Examples Usage
@@ -133,6 +152,27 @@ usage: scr_get_work_details.py [-h] [--debug] [-f FILE] [main_argument]
 
 This script will export in a csv file one or several works from senscritique.
 The -f option will use the 'URL' field of a csv file.
+
+positional arguments:
+  main_argument         File to parse.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Display debugging information
+  -f FILE, --file FILE  File to parse.
+```
+
+### scr_get_url_details
+
+Running `scr_get_work_url -f FILE` will extract the first search result on Senscritique for each line of a text file and export it in a new file.
+
+It's useful to be used with the `scr_get_work_details.py` script.
+
+```
+usage: scr_get_work_urls.py [-h] [--debug] [-f FILE] [main_argument]
+
+This script will export in a file the URLs for the first Senscritique search
+result of each search terms contained in another file.
 
 positional arguments:
   main_argument         File to parse.
