@@ -12,6 +12,15 @@ Example of what can be extracted:
 - list_work: <https://www.senscritique.com/films/oeuvres>
 - work: <https://www.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
 
+Type of work:
+- film: <https://www.senscritique.com/films>
+- serie: <https://www.senscritique.com/series>
+- jeu: <https://www.senscritique.com/jeuxvideo>
+- livre: <https://www.senscritique.com/livres>
+- bd: <https://www.senscritique.com/bd>
+- album: <https://www.senscritique.com/musique>
+- morceau: As of now, individual tracks are not supported.
+
 The "list_work" urls are difficult to find, here are the one for each genre where the subgenres can be accessed:
 - <https://www.senscritique.com/films/oeuvres>
 - <https://www.senscritique.com/series/oeuvres>
