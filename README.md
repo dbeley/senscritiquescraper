@@ -81,8 +81,8 @@ pipenv run python examples/scr_get_work_urls.py -h
 
 ### user collection
 ```
->>> $ user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
->>> $ df_user_collection = pd.DataFrame(user_collection)
+>>> user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
+>>> df_user_collection = pd.DataFrame(user_collection)
 >>> print(df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]])
                                       Title  Year    Category User Rating Number of Ratings Average Rating
 0                           Symphonie no. 9  1984       Music          10              1068            9.1
@@ -113,8 +113,8 @@ pipenv run python examples/scr_get_work_urls.py -h
 
 ### topchart
 ```
->>> $ topchart = Senscritique.get_topchart("https://www.senscritique.com/musique/tops/top111")
->>> $ df_topchart = pd.DataFrame(topchart)
+>>> topchart = Senscritique.get_topchart("https://www.senscritique.com/musique/tops/top111")
+>>> df_topchart = pd.DataFrame(topchart)
 >>> df_topchart[['Title', 'Year', 'Average Rating', 'Number of Ratings']]
                                           Title  Year Average Rating Number of Ratings
 0    Dvořák: Symphonie No. 9 / Smetana: Moldau  1985            9.1               428
