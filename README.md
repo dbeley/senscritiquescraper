@@ -79,7 +79,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 ```
 {
-    "Title": "La Guerre des \u00c9toiles",
+    "Title": "La Guerre des Étoiles",
     "URL": "https://www.senscritique.com/film/La_Guerre_des_Etoiles/365132",
     "Rating": "7.8",
     "Rating Details": [
@@ -114,8 +114,8 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
 >>> df_user_collection = pd.DataFrame(user_collection)
 >>> df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]]
-
-
+```
+```
                                       Title  Year    Category User Rating Number of Ratings Average Rating
 0                           Symphonie no. 9  1984       Music          10              1068            9.1
 1                          Berserk, tome 13  1997      Comics          10               922            9.1
@@ -151,7 +151,6 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> df_topchart = pd.DataFrame(topchart)
 >>> df_topchart[['Title', 'Year', 'Average Rating', 'Number of Ratings']]
 ```
-
 ``` 
                                           Title  Year Average Rating Number of Ratings
 0    Dvořák: Symphonie No. 9 / Smetana: Moldau  1985            9.1               428
@@ -173,7 +172,6 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> df_list_work = pd.DataFrame(list_work)
 >>> df_list_work[["Title", "Year", "Genre", "Average Rating"]]
 ```
-
 ```
                                          Title  Year                           Genre Average Rating
 0                            Madô Monogatari I  None                                              -
