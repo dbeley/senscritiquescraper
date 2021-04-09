@@ -76,7 +76,37 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> sw_url = Senscritique.get_url("Star Wars", rank=1, genre="Films")
 >>> sw_infos = Senscritique.get_work_details(sw_url)
 >>> sw_infos
-{'Title': 'La Guerre des Étoiles', 'URL': 'https://www.senscritique.com/film/La_Guerre_des_Etoiles/365132', 'Rating': '7.8', 'Rating Details': ['187', '143', '294', '629', '1940', '5721', '17569', '23911', '12138', '6868'], 'Year': '1977', 'Cover URL': 'https://media.senscritique.com/media/000012797534/160/La_Guerre_des_Etoiles.png', 'Review Count': '300', 'Vote Count': '69400', 'Favorite Count': '3800', 'Wishlist Count': '2500', 'In Progress Count': None, 'Producer': 'Film de   George Lucas', 'Genre': 'Aventure, science-fiction et action', 'Length': '2 h 01 min', 'Release Date': '19 octobre 1977 (France)', 'Category': 'Movie'}
+```
+```
+{
+    "Title": "La Guerre des \u00c9toiles",
+    "URL": "https://www.senscritique.com/film/La_Guerre_des_Etoiles/365132",
+    "Rating": "7.8",
+    "Rating Details": [
+        "187",
+        "143",
+        "294",
+        "629",
+        "1940",
+        "5722",
+        "17569",
+        "23912",
+        "12138",
+        "6868"
+    ],
+    "Year": "1977",
+    "Cover URL": "https://media.senscritique.com/media/000012797534/160/La_Guerre_des_Etoiles.png",
+    "Review Count": "300",
+    "Vote Count": "69402",
+    "Favorite Count": "3800",
+    "Wishlist Count": "2500",
+    "In Progress Count": null,
+    "Producer": "Film de   George Lucas",
+    "Genre": "Aventure, science-fiction et action",
+    "Length": "2 h 01 min",
+    "Release Date": "19 octobre 1977 (France)",
+    "Category": "Movie"
+}
 ```
 
 ### user collection
@@ -84,6 +114,8 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
 >>> df_user_collection = pd.DataFrame(user_collection)
 >>> df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]]
+
+
                                       Title  Year    Category User Rating Number of Ratings Average Rating
 0                           Symphonie no. 9  1984       Music          10              1068            9.1
 1                          Berserk, tome 13  1997      Comics          10               922            9.1
@@ -98,6 +130,8 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> survey = Senscritique.get_survey("https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2021/2917616")
 >>> df_survey = pd.DataFrame(survey)
 >>> df_survey[["Title", "Year", "Producer"]]
+```
+```
                           Title  Year                                     Producer
 0               Malcolm & Marie  2021                                 Sam Levinson
 1  Zack Snyder's Justice League  2021                                  Zack Snyder
@@ -116,6 +150,9 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> topchart = Senscritique.get_topchart("https://www.senscritique.com/musique/tops/top111")
 >>> df_topchart = pd.DataFrame(topchart)
 >>> df_topchart[['Title', 'Year', 'Average Rating', 'Number of Ratings']]
+```
+
+``` 
                                           Title  Year Average Rating Number of Ratings
 0    Dvořák: Symphonie No. 9 / Smetana: Moldau  1985            9.1               428
 1                                      Requiem  1971            9.1              1548
@@ -135,6 +172,9 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> list_work = Senscritique.get_list_work("https://www.senscritique.com/jeuxvideo/oeuvres/RPG--3094")
 >>> df_list_work = pd.DataFrame(list_work)
 >>> df_list_work[["Title", "Year", "Genre", "Average Rating"]]
+```
+
+```
                                          Title  Year                           Genre Average Rating
 0                            Madô Monogatari I  None                                              -
 1           Final Fantasy XII : Revenant Wings  2008                             RPG            6.1
