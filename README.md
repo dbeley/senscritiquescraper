@@ -66,7 +66,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 
 ## Example
 
-```
+```python
 >>> import pandas as pd
 >>> from senscritiquescraper import Senscritique
 ```
