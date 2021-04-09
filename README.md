@@ -83,7 +83,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```python
 >>> user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
 >>> df_user_collection = pd.DataFrame(user_collection)
->>> print(df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]])
+>>> df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]]
                                       Title  Year    Category User Rating Number of Ratings Average Rating
 0                           Symphonie no. 9  1984       Music          10              1068            9.1
 1                          Berserk, tome 13  1997      Comics          10               922            9.1
