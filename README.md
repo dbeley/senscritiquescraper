@@ -72,7 +72,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ### work/oeuvre
-```
+```python
 >>> sw_url = Senscritique.get_url("Star Wars", rank=1, genre="Films")
 >>> sw_infos = Senscritique.get_work_details(sw_url)
 >>> sw_infos
@@ -80,7 +80,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ### user collection
-```
+```python
 >>> user_collection = Senscritique.get_user_collection("34nUBqnQvCSkt")
 >>> df_user_collection = pd.DataFrame(user_collection)
 >>> print(df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]])
@@ -94,7 +94,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ### survey
-```
+```python
 >>> survey = Senscritique.get_survey("https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2021/2917616")
 >>> df_survey = pd.DataFrame(survey)
 >>> df_survey[["Title", "Year", "Producer"]]
@@ -112,7 +112,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ### topchart
-```
+```python
 >>> topchart = Senscritique.get_topchart("https://www.senscritique.com/musique/tops/top111")
 >>> df_topchart = pd.DataFrame(topchart)
 >>> df_topchart[['Title', 'Year', 'Average Rating', 'Number of Ratings']]
@@ -131,7 +131,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 ```
 
 ### list_work
-```
+```python
 >>> list_work = Senscritique.get_list_work("https://www.senscritique.com/jeuxvideo/oeuvres/RPG--3094")
 >>> df_list_work = pd.DataFrame(list_work)
 >>> df_list_work[["Title", "Year", "Genre", "Average Rating"]]
