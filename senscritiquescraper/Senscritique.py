@@ -178,9 +178,11 @@ def get_work_details(url: str) -> Dict:
     return work.get_details()
 
 
-def get_url(search_term: str, rank: int = 1) -> str:
+def get_url(search_term: str, rank: int = 1, genre: str = None) -> str:
     """Return the first result URL for the search term.
     Rank can be changed (default 1: first result).
+    Genre can be changed (default None. Possible choices in ["Morceaux", "Albums",
+    "Films", "Livres", "Séries", "BD", "Jeux"])
 
     Returns:
         URL of the first result.
@@ -188,7 +190,7 @@ def get_url(search_term: str, rank: int = 1) -> str:
 
     logger.info("Search term: %s", search_term)
 
-    url = search_utils.get_search_url(search_term)
+    url = search_utils.get_search_url(search_term, genre)
 
     try:
         soup = utils.get_soup(url)

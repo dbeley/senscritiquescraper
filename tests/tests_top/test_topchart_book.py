@@ -45,7 +45,7 @@ def test_book_cover(topchart_row_book):
 
 def test_book_genre(topchart_row_book):
     genre = row_utils.get_baseline_1(topchart_row_book)
-    if genre != "Science-fiction et roman":
+    if genre != "Roman et science-fiction":
         raise AssertionError()
 
 

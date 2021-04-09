@@ -4,16 +4,21 @@ import urllib.parse
 
 logger = logging.getLogger(__name__)
 
+GENRE_CHOICES = ["Morceaux", "Albums", "Films", "Livres", "Séries", "BD", "Jeux"]
+
 
 def sanitize_text(text: str) -> str:
     """Sanitize text to URL-compatible text."""
     return urllib.parse.quote_plus(text)
 
 
-def get_search_url(search_term: str) -> str:
+def get_search_url(search_term: str, genre: str = None) -> str:
     """Returns the senscritique search URL for a search term."""
     search_term_sanitized = sanitize_text(search_term)
-    url = f"https://www.senscritique.com/search?q={search_term_sanitized}"
+    if genre not in GENRE_CHOICES:
+        url = f"https://www.senscritique.com/search?q={search_term_sanitized}"
+    else:
+        url = f"https://www.senscritique.com/search?q={search_term_sanitized}&categories[0][0]={genre}"
     return url
 
 

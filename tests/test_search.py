@@ -45,5 +45,21 @@ def test_search_term_position():
 
     if not Senscritique.search_utils.get_search_url(search_term) == url_search:
         raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 12) == url:
+    if not Senscritique.search_utils.get_search_result(soup, 13) == url:
+        raise AssertionError()
+
+
+def test_search_term_genre():
+    search_term = "XTC"
+    genre = "Livres"
+    url_search = "https://www.senscritique.com/search?q=XTC&categories[0][0]=Livres"
+    url = "https://www.senscritique.com/livre/The_XTC_Bumper_Book_of_Fun_for_Boys_and_Girls/27941474"
+    soup = Senscritique.utils.get_soup(url_search)
+
+    if (
+        not Senscritique.search_utils.get_search_url(search_term, genre=genre)
+        == url_search
+    ):
+        raise AssertionError()
+    if not Senscritique.search_utils.get_search_result(soup, 1) == url:
         raise AssertionError()

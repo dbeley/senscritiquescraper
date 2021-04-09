@@ -34,7 +34,7 @@ def test_title_work_jeu(work_object_jeu):
 
 def test_year_work_jeu(work_object_jeu):
     year = work_object_jeu.get_year()
-    if not year == "2015":
+    if not year == "2013":
         raise AssertionError()
 
 
@@ -45,7 +45,8 @@ def test_cover_url_work_jeu(work_object_jeu):
 
     if (
         not cover_url
-        == "https://media.senscritique.com/media/000009682253/160/Verdun.png"
+        # == "https://media.senscritique.com/media/000009682253/160/Verdun.png"
+        == "https://media.senscritique.com/media/000019964116/160/Verdun.jpg"
     ):
         raise AssertionError()
 
