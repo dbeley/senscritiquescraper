@@ -40,7 +40,7 @@ def main():
 
     list_urls = []
     for index, row in df.iterrows():
-        if url_search := Senscritique.get_url(row[0], 1):
+        if url_search := Senscritique.get_url(row[0], rank=1, genre=args.genre):
             list_urls.append({"URL": url_search})
 
     df_urls = pd.DataFrame(list_urls)
@@ -66,6 +66,12 @@ def parse_args():
     )
     parser.add_argument("main_argument", nargs="?", type=str, help="File to parse.")
     parser.add_argument("-f", "--file", type=str, help="File to parse.")
+    parser.add_argument(
+        "-g",
+        "--genre",
+        type=str,
+        help="Genre to filter (available choices : Morceaux, Albums, Films, Livres, Séries, BD, Jeux).",
+    )
     args = parser.parse_args()
 
     logging.basicConfig(level=args.loglevel, format=custom_format)

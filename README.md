@@ -76,6 +76,7 @@ pipenv run python examples/scr_get_work_urls.py -h
 Extract the URL of the first result for the query "Star Wars" with a filter on movies, then extract infos about it:
 
 ```python
+>>> # Possible genre are Films, Livres, Séries, BD, Jeux, Morceaux, Albums.
 >>> sw_url = Senscritique.get_url("Star Wars", rank=1, genre="Films")
 >>> sw_infos = Senscritique.get_work_details(sw_url)
 >>> import json
@@ -220,7 +221,7 @@ python scr_get_topchart.py -h
 #### scr_get_topchart
 
 ```
-usage: scr_get_topchart [-h] [--debug] [-u URL] [main_argument]
+usage: scr_get_topchart.py [-h] [--debug] [-u URL] [main_argument]
 
 Senscritique scraper for a top list/chart.
 
@@ -240,9 +241,9 @@ python scr_get_collection.py -h
 ```
 
 ```
-usage: scr_get_collection [-h] [--debug] [-u USER] [main_argument]
+usage: scr_get_collection.py [-h] [--debug] [-u USER] [main_argument]
 
-Senscritique scraper for an user collection
+Senscritique scraper for an user collection.
 
 positional arguments:
   main_argument         Name of the user
@@ -302,8 +303,7 @@ python scr_get_work_details.py -h
 ```
 usage: scr_get_work_details.py [-h] [--debug] [-f FILE] [main_argument]
 
-This script will export in a csv file one or several works from senscritique.
-The -f option will use the 'URL' field of a csv file.
+This script will export in a csv file one or several works from senscritique contained in a csv file (it will use the 'URL' field).
 
 positional arguments:
   main_argument         File to parse.
@@ -321,10 +321,9 @@ Running `scr_get_work_url -f FILE` will extract the first search result on Sensc
 It's useful to be used with the `scr_get_work_details.py` script.
 
 ```
-usage: scr_get_work_urls.py [-h] [--debug] [-f FILE] [main_argument]
+usage: scr_get_work_urls.py [-h] [--debug] [-f FILE] [-g GENRE] [main_argument]
 
-This script will export in a file the URLs for the first Senscritique search
-result of each search terms contained in another file.
+This script will export in a file the URLs for the first Senscritique search result of each search terms contained in another file.
 
 positional arguments:
   main_argument         File to parse.
@@ -333,4 +332,6 @@ optional arguments:
   -h, --help            show this help message and exit
   --debug               Display debugging information
   -f FILE, --file FILE  File to parse.
+  -g GENRE, --genre GENRE
+                        Genre to filter (available choices : Morceaux, Albums, Films, Livres, Séries, BD, Jeux).
 ```

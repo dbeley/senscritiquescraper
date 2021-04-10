@@ -112,7 +112,8 @@ class Work:
             return None
 
     def get_in_progress_count(self):
-        if self.category in ["Track"]:
+        # Tracks and movies don't have in_progress_count.
+        if self.category in ["Track", "Movie"]:
             return None
         try:
             in_progress_count = (
@@ -156,7 +157,8 @@ class Work:
             return None
 
     def get_description(self) -> str:
-        if self.category in ["Track"]:
+        # Tracks and albums don't have description.
+        if self.category in ["Track", "Album"]:
             return None
         try:
             return (

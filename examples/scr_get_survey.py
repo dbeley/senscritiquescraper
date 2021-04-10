@@ -29,16 +29,16 @@ def main():
     df_survey = pd.DataFrame(survey)
 
     df_survey.to_csv(
-        Senscritique.create_survey_filename(url), sep="\t", index=False
+        f"{int(time.time())}_{Senscritique.create_survey_filename(url)}",
+        sep="\t",
+        index=False,
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
 
 def parse_args():
     custom_format = "%(levelname)s :: %(message)s"
-    parser = argparse.ArgumentParser(
-        description="Senscritique scraper for a survey."
-    )
+    parser = argparse.ArgumentParser(description="Senscritique scraper for a survey.")
     parser.add_argument(
         "--debug",
         help="Display debugging information",
@@ -47,9 +47,7 @@ def parse_args():
         const=logging.DEBUG,
         default=logging.INFO,
     )
-    parser.add_argument(
-        "main_argument", nargs="?", type=str, help="URL to parse"
-    )
+    parser.add_argument("main_argument", nargs="?", type=str, help="URL to parse")
     parser.add_argument(
         "-u", "--url", help="URL to parse (same as without argument)", type=str
     )

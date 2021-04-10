@@ -34,7 +34,7 @@ def main():
             list_work_details.append(work_details)
 
     df_topchart = pd.DataFrame(list_work_details)
-    df_topchart.to_csv(f"export_works_{file}", sep="\t", index=False)
+    df_topchart.to_csv(f"{int(time.time())}_export_works_{file}", sep="\t", index=False)
 
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
@@ -52,9 +52,7 @@ def parse_args():
         const=logging.DEBUG,
         default=logging.INFO,
     )
-    parser.add_argument(
-        "main_argument", nargs="?", type=str, help="File to parse."
-    )
+    parser.add_argument("main_argument", nargs="?", type=str, help="File to parse.")
     parser.add_argument("-f", "--file", type=str, help="File to parse.")
     args = parser.parse_args()
 

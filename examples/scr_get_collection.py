@@ -29,7 +29,9 @@ def main():
     df_user_collection = pd.DataFrame(user_collection)
 
     df_user_collection.to_csv(
-        Senscritique.create_collection_filename(user), sep="\t", index=False
+        f"{int(time.time())}_{Senscritique.create_collection_filename(user)}",
+        sep="\t",
+        index=False,
     )
     logger.info("Runtime : %.2f seconds." % (time.time() - temps_debut))
 
