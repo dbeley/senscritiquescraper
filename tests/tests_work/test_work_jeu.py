@@ -3,7 +3,7 @@ def test_get_work_jeu(work_object_jeu):
     if not isinstance(details, dict):
         raise AssertionError()
 
-    if not len(details) == 16:
+    if not len(details) == 17:
         print(len(details))
         raise AssertionError()
 
@@ -19,7 +19,7 @@ def test_rating_work_jeu(work_object_jeu):
 
 def test_rating_details_work_jeu(work_object_jeu):
     rating_details = work_object_jeu.get_rating_details()
-    if not isinstance(rating_details, list):
+    if not isinstance(rating_details, dict):
         raise AssertionError()
 
     if not len(rating_details) == 10:

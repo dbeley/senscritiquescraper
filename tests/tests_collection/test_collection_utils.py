@@ -15,18 +15,25 @@ def test_get_next_collection_link(collection_soup):
 
 def test_get_rows_from_collection(collection_soup):
     rows = collection_utils.get_rows_from_collection(collection_soup)
-    if len(rows) != 6:
+    if len(rows) != 7:
         raise AssertionError()
 
 
 def test_get_collection_infos(collection_soup):
     infos = collection_utils.get_collection_infos(collection_soup)
-    if len(infos) != 6:
+    if len(infos) != 7:
+        print(len(infos))
         raise AssertionError()
 
-    assert len(infos) == 6
-
     test_infos = [
+        {
+            "Title": "Walk On",
+            "URL": "https://www.senscritique.com/morceau/Walk_On/4939111",
+            "Year": "1974",
+            "User Action": "Rated",
+            "User Rating": "10",
+            "Category": "Track",
+        },
         {
             "Title": "Symphonie no. 9",
             "URL": "https://www.senscritique.com/album/Symphonie_no_9/1315369",
@@ -47,7 +54,7 @@ def test_get_collection_infos(collection_soup):
             "Title": "Berserk, tome 13",
             "URL": "https://www.senscritique.com/bd/Berserk_tome_13/17431552",
             "Original Title": "Beruseruku",
-            "Year": "2006",
+            "Year": "1997",
             "Release Date": "Sortie : 3 mai 2006",
             "Picture URL": "https://media.senscritique.com/media/000011614353/90/Berserk_tome_13.jpg",
             "Author": "Kentaro Miura",
@@ -127,9 +134,12 @@ def test_get_collection_infos(collection_soup):
         },
     ]
 
-    assert infos[0]["Title"] == test_infos[0]["Title"]
-    assert infos[1]["Title"] == test_infos[1]["Title"]
-    assert infos[2]["Title"] == test_infos[2]["Title"]
-    assert infos[3]["Title"] == test_infos[3]["Title"]
-    assert infos[4]["Title"] == test_infos[4]["Title"]
-    assert infos[5]["Title"] == test_infos[5]["Title"]
+    for index, info in enumerate(infos):
+        print(info)
+        print(test_infos[index])
+        assert info["Title"] == test_infos[index]["Title"]
+        assert info["URL"] == test_infos[index]["URL"]
+        assert info["Year"] == test_infos[index]["Year"]
+        assert info["User Action"] == test_infos[index]["User Action"]
+        assert info["User Rating"] == test_infos[index]["User Rating"]
+        assert info["Category"] == test_infos[index]["Category"]

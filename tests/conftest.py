@@ -58,8 +58,52 @@ def collection_soup():
 
 
 @pytest.fixture(scope="module")
-def survey_soup():
-    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_films_francais/429176"
+def survey_movie():
+    url = (
+        "https://www.senscritique.com/top/resultats/Les_meilleurs_films_francais/429176"
+    )
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_track():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_morceaux_de_Georges_Brassens/748276"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_serie():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleures_series_avec_une_bande_de_potes/188402"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_game():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_jeux_de_simulation/193221"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_comic():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_albums_d_Asterix/326726"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_book():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_livres_de_fantasy_francaise/2242770"
+    soup = utils.get_soup(url)
+    return soup
+
+
+@pytest.fixture(scope="module")
+def survey_album():
+    url = "https://www.senscritique.com/top/resultats/Les_meilleurs_albums_francais_des_annees_1960/685854"
     soup = utils.get_soup(url)
     return soup
 
@@ -93,6 +137,14 @@ def work_object_jeu():
 
 
 @pytest.fixture(scope="module")
+def work_object_jeu2():
+    # url = "https://www.senscritique.com/jeuvideo/Verdun/10624321"
+    url = "https://www.senscritique.com/jeuvideo/Far_Cry_2/202483"
+    work = work_utils.Work(url)
+    return work
+
+
+@pytest.fixture(scope="module")
 def work_object_livre():
     url = "https://www.senscritique.com/livre/Soif/39651063"
     work = work_utils.Work(url)
@@ -109,5 +161,12 @@ def work_object_bd():
 @pytest.fixture(scope="module")
 def work_object_album():
     url = "https://www.senscritique.com/album/Spiritual_Instinct/40163973"
+    work = work_utils.Work(url)
+    return work
+
+
+@pytest.fixture(scope="module")
+def work_object_morceau():
+    url = "https://www.senscritique.com/morceau/Les_Copains_d_abord/294151"
     work = work_utils.Work(url)
     return work

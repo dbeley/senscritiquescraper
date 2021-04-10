@@ -21,15 +21,14 @@ def get_list_work_current_page_number(soup: BeautifulSoup) -> int:
         logger.info("Current list_work page number : %s", page_number)
         return page_number
     except Exception as e:
-        logger.error(e)
+        logger.error(f"get_list_work_current_page_number: {e}")
         return None
 
 
 def get_dict_available_pages(soup: BeautifulSoup) -> Dict[int, str]:
     """Returns a dict of the available pages in a BeautifulSoup object."""
     dict_links = {
-        int(x["data-sc-pager-page"]): "https://www.senscritique.com"
-        + x["href"]
+        int(x["data-sc-pager-page"]): "https://www.senscritique.com" + x["href"]
         for x in soup.find_all("a", {"class": "eipa-anchor"})
     }
     return dict_links

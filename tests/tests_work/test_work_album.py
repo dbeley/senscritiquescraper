@@ -3,7 +3,7 @@ def test_get_work_album(work_object_album):
     if not isinstance(details, dict):
         raise AssertionError()
 
-    if not len(details) == 16:
+    if not len(details) == 17:
         print(len(details))
         raise AssertionError()
 
@@ -19,7 +19,7 @@ def test_rating_work_album(work_object_album):
 
 def test_rating_details_work_album(work_object_album):
     rating_details = work_object_album.get_rating_details()
-    if not isinstance(rating_details, list):
+    if not isinstance(rating_details, dict):
         raise AssertionError()
 
     if not len(rating_details) == 10:

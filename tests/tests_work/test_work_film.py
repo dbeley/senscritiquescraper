@@ -3,7 +3,7 @@ def test_get_work_film(work_object_film):
     if not isinstance(details, dict):
         raise AssertionError()
 
-    if not len(details) == 16:
+    if not len(details) == 17:
         print(len(details))
         raise AssertionError()
 
@@ -19,7 +19,7 @@ def test_rating_work_film(work_object_film):
 
 def test_rating_details_work_film(work_object_film):
     rating_details = work_object_film.get_rating_details()
-    if not isinstance(rating_details, list):
+    if not isinstance(rating_details, dict):
         raise AssertionError()
 
     if not len(rating_details) == 10:
@@ -81,6 +81,7 @@ def test_wishlist_count_work_film(work_object_film):
 
 
 def test_in_progress_count_work_film(work_object_film):
+    # movies don't have in_progress element
     in_progress_count = work_object_film.get_in_progress_count()
     if in_progress_count:
         raise AssertionError()

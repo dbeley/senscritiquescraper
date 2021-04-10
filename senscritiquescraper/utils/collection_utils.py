@@ -9,6 +9,7 @@ from .row_utils import (
     comics_utils,
     music_utils,
     videogames_utils,
+    track_utils,
 )
 
 logger = logging.getLogger(__name__)
@@ -99,52 +100,52 @@ def get_row_infos(row: element.Tag) -> Dict:
     logger.debug("get_row_infos")
     category = get_category(row)
     if category == "film":
-        logger.debug("films")
         row_info = {
             **movies_utils.get_movies_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Movie"},
         }
     elif category == "serie":
-        logger.debug("series")
         row_info = {
             **series_utils.get_series_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Series"},
         }
     elif category == "jeuvideo":
-        logger.debug("jeuxvideo")
         row_info = {
             **videogames_utils.get_videogames_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Video Game"},
         }
     elif category == "livre":
-        logger.debug("livres")
         row_info = {
             **books_utils.get_books_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Book"},
         }
     elif category == "bd":
-        logger.debug("bd")
         row_info = {
             **comics_utils.get_comics_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Comics"},
         }
     elif category == "album":
-        logger.debug("musique")
         row_info = {
             **music_utils.get_music_infos_from_row(row),
             **get_complementary_infos_collection(row),
             **{"Category": "Music"},
         }
+    elif category == "morceau":
+        row_info = {
+            **track_utils.get_track_infos_from_row(row),
+            **get_complementary_infos_collection(row),
+            **{"Category": "Track"},
+        }
     else:
-        logger.error("ERREUR")
+        logger.error(f"Category {category} not supported.")
         return None
-    row_info.pop("Description", None)
-    row_info.pop("Rank", None)
+    # row_info.pop("Description", None)
+    # row_info.pop("Rank", None)
     return row_info
 
 

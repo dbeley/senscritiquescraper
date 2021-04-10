@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 def parse_baseline(row: element.Tag) -> List[str]:
     """Parse the baseline tag of a row."""
     try:
-        baseline = (
+        return (
             row.find("p", {"class": "elco-baseline"})
             .text.replace("\n", "")
             .replace("\t", "")
@@ -16,71 +16,69 @@ def parse_baseline(row: element.Tag) -> List[str]:
         )
     except Exception as e:
         logger.debug("Function parse_baseline for row %s : %s", row, e)
-        baseline = None
-    return baseline
+        return None
 
 
 def get_baseline_0(row: element.Tag) -> str:
     """Get the first element returned by parse_baseline."""
     try:
-        baseline = parse_baseline(row)[0].strip()
+        return parse_baseline(row)[0].strip()
     except Exception as e:
         logger.debug("Function get_baseline_0 for row %s : %s", row, e)
-        baseline = None
-    return baseline
+        return None
 
 
 def get_baseline_1(row: element.Tag) -> str:
     """Get the second element returned by parse_baseline."""
     try:
-        baseline = parse_baseline(row)[1].strip()
+        return parse_baseline(row)[1].strip()
     except Exception as e:
         logger.debug("Function get_baseline_1 for row %s : %s", row, e)
-        baseline = None
-    return baseline
+        return None
 
 
 def get_baseline_2(row: element.Tag) -> str:
     """Get the third element returned by parse_baseline."""
     try:
-        baseline = parse_baseline(row)[2].strip()
+        return parse_baseline(row)[2].strip()
     except Exception as e:
         logger.debug("Function get_baseline_2 for row %s : %s", row, e)
-        baseline = None
-    return baseline
+        return None
 
 
 def get_rank(row: element.Tag) -> str:
     """Get the rank of a row."""
     try:
-        rank = row.find("span", {"class": "elto-rank-item"}).text
+        if row.find("span", {"class": "elpo-rank-item"}):
+            return row.find("span", {"class": "elpo-rank-item"}).text
+        elif row.find("span", {"class": "elto-rank-item"}):
+            return row.find("span", {"class": "elto-rank-item"}).text
+        else:
+            return None
     except Exception as e:
         logger.debug("Function get_rank for row %s : %s", row, e)
-        rank = None
-    return rank
+        return None
 
 
 def get_title(row: element.Tag) -> str:
     """Get the title of a row."""
     try:
-        title = row.find("a", {"class": "elco-anchor"}).text.strip()
+        return row.find("a", {"class": "elco-anchor"}).text.strip()
     except Exception as e:
         logger.debug("Function get_title for row %s : %s", row, e)
-        title = None
-    return title
+        return None
 
 
 def get_url(row: element.Tag) -> str:
     """Get the url of a row."""
     try:
-        url = (
+        return (
             "https://www.senscritique.com"
             + row.find("a", {"class": "elco-anchor"})["href"]
         )
     except Exception as e:
         logger.debug("Function get_url for row %s : %s", row, e)
-        url = None
-    return url
+        return None
 
 
 def get_original_title(row: element.Tag) -> str:
@@ -188,9 +186,7 @@ def get_average_rating(row: element.Tag) -> str:
 def get_number_of_ratings(row: element.Tag) -> str:
     """Get the number of ratings of a row."""
     try:
-        number_of_ratings = row.find("a", {"class": "erra-global"})[
-            "title"
-        ].split()[-2]
+        number_of_ratings = row.find("a", {"class": "erra-global"})["title"].split()[-2]
     except Exception as e:
         logger.debug("Function get_number_of_ratings for row %s : %s", row, e)
         number_of_ratings = None
