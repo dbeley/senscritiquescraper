@@ -71,12 +71,12 @@ pipenv run python examples/scr_get_work_urls.py -h
 >>> from senscritiquescraper import Senscritique
 ```
 
-### work/oeuvre
+### Work/oeuvre
 
 Extract the URL of the first result for the query "Star Wars" with a filter on movies, then extract infos about it:
 
 ```python
->>> # Possible genre are Films, Livres, Séries, BD, Jeux, Morceaux, Albums.
+>>> # Possible genres are Films, Livres, Séries, BD, Jeux, Morceaux, Albums (setting the genre is optional).
 >>> sw_url = Senscritique.get_url("Star Wars", rank=1, genre="Films")
 >>> sw_infos = Senscritique.get_work_details(sw_url)
 >>> import json
@@ -116,7 +116,7 @@ Extract the URL of the first result for the query "Star Wars" with a filter on m
 }
 ```
 
-### user collection
+### User Collection
 
 Extract the user collection of the user 34nUBqnQvCSkt:
 
@@ -137,7 +137,7 @@ Extract the user collection of the user 34nUBqnQvCSkt:
 6                                      1984  1949        Book          10             81697            8.4
 ```
 
-### topchart
+### Top Chart
 
 Extract infos about the Top 111 Musique topchart:
 
@@ -161,7 +161,7 @@ Extract infos about the Top 111 Musique topchart:
 110                        The Main Ingredient  1994            8.2               320
 ```
 
-### list_work
+### Work List
 
 Extract infos about all the RPG video games listed on Senscritique:
 
@@ -185,7 +185,7 @@ Extract infos about all the RPG video games listed on Senscritique:
 6679                    The Eternal Dagger  1987                                                                 -
 ```
 
-### survey
+### Survey
 
 Extract infos about the best movies of 2021 survey:
 
