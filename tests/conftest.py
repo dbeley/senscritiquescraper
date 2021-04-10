@@ -38,14 +38,6 @@ def work_object_jeu():
 
 
 @pytest.fixture(scope="module")
-def work_object_jeu2():
-    # url = "https://www.senscritique.com/jeuvideo/Verdun/10624321"
-    url = "https://www.senscritique.com/jeuvideo/Far_Cry_2/202483"
-    work = work_utils.Work(url)
-    return work
-
-
-@pytest.fixture(scope="module")
 def work_object_livre():
     url = "https://www.senscritique.com/livre/Soif/39651063"
     work = work_utils.Work(url)
