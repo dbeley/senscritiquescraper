@@ -9,7 +9,7 @@ def test_videogame_rank(topchart_row_videogame):
 
 def test_videogame_title(topchart_row_videogame):
     title = row_utils.get_title(topchart_row_videogame)
-    if title != "The Legend of Zelda : Ocarina of Time":
+    if title != "The Legend of Zelda: Ocarina of Time":
         raise AssertionError()
 
 

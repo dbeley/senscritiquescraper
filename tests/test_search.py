@@ -45,7 +45,8 @@ def test_search_term_position():
 
     if not Senscritique.search_utils.get_search_url(search_term) == url_search:
         raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 13) == url:
+    print(Senscritique.search_utils.get_search_result(soup, 12))
+    if not Senscritique.search_utils.get_search_result(soup, 12) == url:
         raise AssertionError()
 
 

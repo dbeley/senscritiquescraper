@@ -66,7 +66,7 @@ def test_get_collection_infos(collection_soup):
             "Category": "Comics",
         },
         {
-            "Title": "The Legend of Zelda : Breath of the Wild",
+            "Title": "The Legend of Zelda: Breath of the Wild",
             "URL": "https://www.senscritique.com/jeuvideo/The_Legend_of_Zelda_Breath_of_the_Wild/10416244",
             "Original Title": "Zeruda no densetsu: Buresu obu za wairudo",
             "Year": "2017",
