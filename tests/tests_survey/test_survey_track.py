@@ -21,5 +21,5 @@ def test_get_infos_from_survey(survey_track):
     if len(infos) != 15:
         raise AssertionError()
 
-    if infos[0]["Title"] != "La mauvaise reputation":
+    if infos[0]["Title"] != "La Mauvaise Réputation":
         raise AssertionError()

@@ -100,8 +100,8 @@ def test_get_collection_infos(collection_soup):
             "Category": "Series",
         },
         {
-            "Title": "12 hommes en colère",
-            "URL": "https://www.senscritique.com/film/12_hommes_en_colere/370894",
+            "Title": "Douze Hommes en colère",
+            "URL": "https://www.senscritique.com/film/Douze_Hommes_en_colere/370894",
             "Original Title": "12 Angry Men",
             "Year": "1957",
             "Release Date": "Sortie : 10 avril 1957",
