@@ -1,5 +1,5 @@
 import logging
-from typing import List, Dict
+from typing import List, Dict, Optional
 from . import utils
 
 
@@ -63,14 +63,14 @@ class Work:
         self.description = self.get_description()
         return self.export()
 
-    def get_main_rating(self) -> str:
+    def get_main_rating(self) -> Optional[str]:
         try:
             return self.soup.find("span", {"class": "pvi-scrating-value"}).text
         except Exception as e:
             logger.error("Function get_main_rating : %s.", e)
             return None
 
-    def get_rating_details(self) -> List:
+    def get_rating_details(self) -> Optional[Dict[int, int]]:
         try:
             rating_details = {
                 key: int(value.text.strip())
@@ -86,14 +86,14 @@ class Work:
             logger.error("Function get_rating_details : %s.", e)
             return None
 
-    def get_vote_count(self):
+    def get_vote_count(self) -> Optional[str]:
         try:
             return self.soup.find("meta", {"itemprop": "ratingCount"})["content"]
         except Exception as e:
             logger.error("Function get_vote_count : %s.", e)
             return None
 
-    def get_favorite_count(self):
+    def get_favorite_count(self) -> Optional[str]:
         try:
             favorite_count = (
                 self.soup.find("li", {"title": "Coups de coeur"}).find("b").text
@@ -103,7 +103,7 @@ class Work:
             logger.error("Function get_favorite_count : %s.", e)
             return None
 
-    def get_wishlist_count(self):
+    def get_wishlist_count(self) -> Optional[str]:
         try:
             wishlist_count = self.soup.find("li", {"title": "Envies"}).find("b").text
             return utils.format_number(wishlist_count)
@@ -111,7 +111,7 @@ class Work:
             logger.error("Function get_wishlist_count : %s.", e)
             return None
 
-    def get_in_progress_count(self):
+    def get_in_progress_count(self) -> Optional[str]:
         # Tracks and movies don't have in_progress_count.
         if self.category in ["Track", "Movie"]:
             return None
@@ -124,14 +124,14 @@ class Work:
             logger.warning("Function get_in_progress_count : %s.", e)
             return None
 
-    def get_title(self) -> str:
+    def get_title(self) -> Optional[str]:
         try:
             return self.soup.find("h1", {"class": "pvi-product-title"}).text.strip()
         except Exception as e:
             logger.error("Function get_title : %s.", e)
             return None
 
-    def get_year(self) -> str:
+    def get_year(self) -> Optional[str]:
         try:
             return (
                 self.soup.find("small", {"class": "pvi-product-year"})
@@ -142,21 +142,21 @@ class Work:
             logger.error("Function get_year : %s.", e)
             return None
 
-    def get_cover_url(self) -> str:
+    def get_cover_url(self) -> Optional[str]:
         try:
             return self.soup.find("img", {"class": "pvi-hero-poster"})["src"]
         except Exception as e:
             logger.error("Function get_cover_url : %s.", e)
             return None
 
-    def get_review_count(self) -> str:
+    def get_review_count(self) -> Optional[str]:
         try:
             return self.soup.find("meta", {"itemprop": "reviewCount"})["content"]
         except Exception as e:
             logger.error("Function get_review_count : %s.", e)
             return None
 
-    def get_description(self) -> str:
+    def get_description(self) -> Optional[str]:
         # Tracks and albums don't have description.
         if self.category in ["Track", "Album"]:
             return None

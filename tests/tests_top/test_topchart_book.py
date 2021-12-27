@@ -33,7 +33,8 @@ def test_book_year(topchart_row_book):
 
 def test_book_release_date(topchart_row_book):
     release_date = row_utils.get_baseline_0(topchart_row_book)
-    if release_date != "Sortie : 8 juin 1949":
+    if release_date != "1 juillet 1950 (France)":
+        print(release_date)
         raise AssertionError()
 
 

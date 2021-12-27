@@ -8,7 +8,7 @@ from .utils import (
     utils,
     work_utils,
 )
-from typing import List, Dict
+from typing import List, Dict, Optional
 
 logger = logging.getLogger(__name__)
 
@@ -178,7 +178,7 @@ def get_work_details(url: str) -> Dict:
     return work.get_details()
 
 
-def get_url(search_term: str, rank: int = 1, genre: str = None) -> str:
+def get_url(search_term: str, rank: int = 1, genre: str = None) -> Optional[str]:
     """Return the first result URL for the search term.
     Rank can be changed (default 1: first result).
     Genre can be changed (default None. Possible choices in ["Morceaux", "Albums",

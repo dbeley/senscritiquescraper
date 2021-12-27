@@ -1,6 +1,6 @@
 import logging
 from bs4 import BeautifulSoup, element
-from typing import Dict, List
+from typing import Dict, List, Optional
 from . import utils
 from .row_utils import (
     movies_utils,
@@ -15,7 +15,7 @@ from .row_utils import (
 logger = logging.getLogger(__name__)
 
 
-def get_collection_current_page_number(soup: BeautifulSoup) -> int:
+def get_collection_current_page_number(soup: BeautifulSoup) -> Optional[int]:
     """Returns the senscritique page number of a BeautifulSoup object."""
     try:
         page_number = int(soup.find("span", {"class": "eipa-current"}).text)
@@ -35,7 +35,7 @@ def get_dict_available_pages(soup: BeautifulSoup) -> Dict[int, str]:
     return dict_links
 
 
-def get_next_collection_link(soup: BeautifulSoup) -> str:
+def get_next_collection_link(soup: BeautifulSoup) -> Optional[str]:
     """Returns the next link of BeautifulSoup object."""
     available_pages = get_dict_available_pages(soup)
     current_page = get_collection_current_page_number(soup)
@@ -95,7 +95,7 @@ def get_category(row: element.Tag) -> str:
     return row.find("a", {"class": "elco-anchor"})["href"].split("/")[1]
 
 
-def get_row_infos(row: element.Tag) -> Dict:
+def get_row_infos(row: element.Tag) -> Optional[Dict]:
     """Returns a dict containing a row information."""
     logger.debug("get_row_infos")
     category = get_category(row)
@@ -164,7 +164,7 @@ def get_complementary_infos_collection(row: element.Tag) -> Dict:
         dict_infos["User Action"] = "Rated"
 
     dict_infos["Recommended"] = (
-        True if action.find("span", {"class": "eins-user-recommend"}) else False
+        "True" if action.find("span", {"class": "eins-user-recommend"}) else "False"
     )
 
     dict_infos["User Rating"] = action.text.strip()

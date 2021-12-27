@@ -1,5 +1,6 @@
 import logging
 from bs4 import BeautifulSoup
+from typing import Optional
 import urllib.parse
 
 logger = logging.getLogger(__name__)
@@ -22,7 +23,7 @@ def get_search_url(search_term: str, genre: str = None) -> str:
     return url
 
 
-def get_search_result(soup: BeautifulSoup, position: int) -> int:
+def get_search_result(soup: BeautifulSoup, position: int) -> Optional[str]:
     """Returns the URL result of the BeautifulSoup object at the defined position."""
     try:
         url_list = [

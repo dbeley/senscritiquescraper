@@ -21,7 +21,8 @@ def test_videogame_url(topchart_row_videogame):
 
 def test_videogame_original_title(topchart_row_videogame):
     original_title = row_utils.get_original_title(topchart_row_videogame)
-    if original_title != "Zelda no Densetsu : Toki no Ocarina":
+    if original_title != "Zelda no Densetsu: Toki no Ocarina":
+        print(original_title)
         raise AssertionError()
 
 
@@ -33,7 +34,8 @@ def test_videogame_year(topchart_row_videogame):
 
 def test_videogame_release_date(topchart_row_videogame):
     release_date = row_utils.get_baseline_0(topchart_row_videogame)
-    if release_date != "Sortie : 11 décembre 1998":
+    if release_date != "11 décembre 1998 (France)":
+        print(release_date)
         raise AssertionError()
 
 

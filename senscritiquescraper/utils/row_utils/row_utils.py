@@ -1,11 +1,11 @@
 import logging
 from bs4 import element
-from typing import List
+from typing import List, Optional
 
 logger = logging.getLogger(__name__)
 
 
-def parse_baseline(row: element.Tag) -> List[str]:
+def parse_baseline(row: element.Tag) -> Optional[List[str]]:
     """Parse the baseline tag of a row."""
     try:
         return (
@@ -19,7 +19,7 @@ def parse_baseline(row: element.Tag) -> List[str]:
         return None
 
 
-def get_baseline_0(row: element.Tag) -> str:
+def get_baseline_0(row: element.Tag) -> Optional[str]:
     """Get the first element returned by parse_baseline."""
     try:
         return parse_baseline(row)[0].strip()
@@ -28,7 +28,7 @@ def get_baseline_0(row: element.Tag) -> str:
         return None
 
 
-def get_baseline_1(row: element.Tag) -> str:
+def get_baseline_1(row: element.Tag) -> Optional[str]:
     """Get the second element returned by parse_baseline."""
     try:
         return parse_baseline(row)[1].strip()
@@ -37,7 +37,7 @@ def get_baseline_1(row: element.Tag) -> str:
         return None
 
 
-def get_baseline_2(row: element.Tag) -> str:
+def get_baseline_2(row: element.Tag) -> Optional[str]:
     """Get the third element returned by parse_baseline."""
     try:
         return parse_baseline(row)[2].strip()
@@ -46,7 +46,7 @@ def get_baseline_2(row: element.Tag) -> str:
         return None
 
 
-def get_rank(row: element.Tag) -> str:
+def get_rank(row: element.Tag) -> Optional[str]:
     """Get the rank of a row."""
     try:
         if row.find("span", {"class": "elpo-rank-item"}):
@@ -60,7 +60,7 @@ def get_rank(row: element.Tag) -> str:
         return None
 
 
-def get_title(row: element.Tag) -> str:
+def get_title(row: element.Tag) -> Optional[str]:
     """Get the title of a row."""
     try:
         return row.find("a", {"class": "elco-anchor"}).text.strip()
@@ -69,7 +69,7 @@ def get_title(row: element.Tag) -> str:
         return None
 
 
-def get_url(row: element.Tag) -> str:
+def get_url(row: element.Tag) -> Optional[str]:
     """Get the url of a row."""
     try:
         return (
@@ -81,7 +81,7 @@ def get_url(row: element.Tag) -> str:
         return None
 
 
-def get_original_title(row: element.Tag) -> str:
+def get_original_title(row: element.Tag) -> Optional[str]:
     """Get the original title of a row."""
     try:
         if row.find("p", {"class": "elco-original-title"}):
@@ -92,25 +92,24 @@ def get_original_title(row: element.Tag) -> str:
             original_title = None
     except Exception as e:
         logger.debug("Function get_original_title for row %s : %s", row, e)
-        original_title = None
+        return None
     return original_title
 
 
-def get_year(row: element.Tag) -> str:
+def get_year(row: element.Tag) -> Optional[str]:
     """Get the release year of a row."""
     try:
-        year = (
+        return (
             row.find("span", {"class": "elco-date"})
             .text.replace("(", "")
             .replace(")", "")
         )
     except Exception as e:
         logger.debug("Function get_year for row %s : %s", row, e)
-        year = None
-    return year
+        return None
 
 
-def get_picture_url(row: element.Tag) -> str:
+def get_picture_url(row: element.Tag) -> Optional[str]:
     """Get the picture url of a row."""
     try:
         if row.select("img"):
@@ -127,7 +126,7 @@ def get_picture_url(row: element.Tag) -> str:
     return picture_url
 
 
-def get_genre(row: element.Tag) -> str:
+def get_genre(row: element.Tag) -> Optional[str]:
     """Get the genre of a row."""
     try:
         if not get_number_of_seasons(row):
@@ -140,7 +139,7 @@ def get_genre(row: element.Tag) -> str:
     return genre
 
 
-def get_producer(row: element.Tag) -> str:
+def get_producer(row: element.Tag) -> Optional[str]:
     """Get the producer/author of a row."""
     try:
         if row.find("span", {"class": "elco-baseline-a"}):
@@ -163,7 +162,7 @@ def get_producer(row: element.Tag) -> str:
     return producer
 
 
-def get_description(row: element.Tag) -> str:
+def get_description(row: element.Tag) -> Optional[str]:
     """Get the description of a row."""
     try:
         description = row.find("p", {"class": "elco-description"}).text.strip()
@@ -173,7 +172,7 @@ def get_description(row: element.Tag) -> str:
     return description
 
 
-def get_average_rating(row: element.Tag) -> str:
+def get_average_rating(row: element.Tag) -> Optional[str]:
     """Get the average rating of a row."""
     try:
         average_rating = row.find("a", {"class": "erra-global"}).text.strip()
@@ -183,7 +182,7 @@ def get_average_rating(row: element.Tag) -> str:
     return average_rating
 
 
-def get_number_of_ratings(row: element.Tag) -> str:
+def get_number_of_ratings(row: element.Tag) -> Optional[str]:
     """Get the number of ratings of a row."""
     try:
         number_of_ratings = row.find("a", {"class": "erra-global"})["title"].split()[-2]
@@ -193,7 +192,7 @@ def get_number_of_ratings(row: element.Tag) -> str:
     return number_of_ratings
 
 
-def get_number_of_seasons(row: element.Tag) -> str:
+def get_number_of_seasons(row: element.Tag) -> Optional[str]:
     """Get the number of seasons of a row."""
     try:
         number_of_seasons = parse_baseline(row)[2].strip()
@@ -205,7 +204,7 @@ def get_number_of_seasons(row: element.Tag) -> str:
     return number_of_seasons
 
 
-def get_platforms(row: element.Tag) -> str:
+def get_platforms(row: element.Tag) -> Optional[str]:
     """Get the supported platforms of a row."""
     try:
         platforms = (

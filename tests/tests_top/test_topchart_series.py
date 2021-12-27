@@ -33,7 +33,8 @@ def test_series_year(topchart_row_series):
 
 def test_series_release_date(topchart_row_series):
     release_date = row_utils.get_baseline_1(topchart_row_series)
-    if release_date != "Première diffusion : 20 janvier 2008":
+    if release_date != "20 octobre 2009 (France)":
+        print(release_date)
         raise AssertionError()
 
 

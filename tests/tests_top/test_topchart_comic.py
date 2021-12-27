@@ -33,7 +33,8 @@ def test_comic_year(topchart_row_comic):
 
 def test_comic_release_date(topchart_row_comic):
     release_date = row_utils.get_baseline_0(topchart_row_comic)
-    if release_date != "Sortie : septembre 1986":
+    if release_date != "novembre 1998 (France)":
+        print(release_date)
         raise AssertionError()
 
 

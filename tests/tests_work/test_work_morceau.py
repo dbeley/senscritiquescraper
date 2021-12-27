@@ -28,7 +28,8 @@ def test_rating_details_work_morceau(work_object_morceau):
 
 def test_title_work_morceau(work_object_morceau):
     title = work_object_morceau.get_title()
-    if not title == "Les Copains d'abord":
+    if not title == "Les Copains d’abord":
+        print(title)
         raise AssertionError()
 
 

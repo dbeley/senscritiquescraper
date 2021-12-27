@@ -33,7 +33,8 @@ def test_movie_year(topchart_row_movie):
 
 def test_movie_release_date(topchart_row_movie):
     release_date = row_utils.get_baseline_1(topchart_row_movie)
-    if release_date != "Sortie : 10 septembre 1999":
+    if release_date != "10 novembre 1999 (France)":
+        print(release_date)
         raise AssertionError()
 
 

@@ -27,7 +27,8 @@ def test_music_year(topchart_row_music):
 
 def test_music_release_date(topchart_row_music):
     release_date = row_utils.get_baseline_0(topchart_row_music)
-    if release_date != "Sortie : 23 mars 1973":
+    if release_date != "23 mars 1973":
+        print(release_date)
         raise AssertionError()
 
 
