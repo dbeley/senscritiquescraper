@@ -7,10 +7,8 @@ def test_search_term_simple():
     url = "https://www.senscritique.com/film/Melancholia/411823"
     soup = Senscritique.utils.get_soup(url_search)
 
-    if not Senscritique.search_utils.get_search_url(search_term) == url_search:
-        raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 1) == url:
-        raise AssertionError()
+    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_result(soup, 1) == url
 
 
 def test_search_term_advanced():
@@ -19,10 +17,8 @@ def test_search_term_advanced():
     url = "https://www.senscritique.com/bd/Le_Domaine_des_dieux_Asterix_tome_17/369196"
     soup = Senscritique.utils.get_soup(url_search)
 
-    if not Senscritique.search_utils.get_search_url(search_term) == url_search:
-        raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 1) == url:
-        raise AssertionError()
+    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_result(soup, 1) == url
 
 
 def test_search_term_advanced_2():
@@ -31,10 +27,8 @@ def test_search_term_advanced_2():
     url = "https://www.senscritique.com/album/Mekanik_Destrukti_Koemmandoeh/5905267"
     soup = Senscritique.utils.get_soup(url_search)
 
-    if not Senscritique.search_utils.get_search_url(search_term) == url_search:
-        raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 1) == url:
-        raise AssertionError()
+    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_result(soup, 1) == url
 
 
 def test_search_term_position():
@@ -43,11 +37,8 @@ def test_search_term_position():
     url = "https://www.senscritique.com/album/Drums_and_Wires/6011492"
     soup = Senscritique.utils.get_soup(url_search)
 
-    if not Senscritique.search_utils.get_search_url(search_term) == url_search:
-        raise AssertionError()
-    print(Senscritique.search_utils.get_search_result(soup, 12))
-    if not Senscritique.search_utils.get_search_result(soup, 12) == url:
-        raise AssertionError()
+    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_result(soup, 12) == url
 
 
 def test_search_term_genre():
@@ -57,10 +48,7 @@ def test_search_term_genre():
     url = "https://www.senscritique.com/livre/The_XTC_Bumper_Book_of_Fun_for_Boys_and_Girls/27941474"
     soup = Senscritique.utils.get_soup(url_search)
 
-    if (
-        not Senscritique.search_utils.get_search_url(search_term, genre=genre)
-        == url_search
-    ):
-        raise AssertionError()
-    if not Senscritique.search_utils.get_search_result(soup, 1) == url:
-        raise AssertionError()
+    assert (
+        Senscritique.search_utils.get_search_url(search_term, genre=genre) == url_search
+    )
+    assert Senscritique.search_utils.get_search_result(soup, 1) == url

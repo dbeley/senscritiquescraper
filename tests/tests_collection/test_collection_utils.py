@@ -3,27 +3,22 @@ from senscritiquescraper.utils import collection_utils
 
 def test_get_dict_available_pages(collection_soup):
     available_pages = collection_utils.get_dict_available_pages(collection_soup)
-    if available_pages:
-        raise AssertionError()
+    assert not available_pages
 
 
 def test_get_next_collection_link(collection_soup):
     next_collection_link = collection_utils.get_next_collection_link(collection_soup)
-    if next_collection_link:
-        raise AssertionError()
+    assert not next_collection_link
 
 
 def test_get_rows_from_collection(collection_soup):
     rows = collection_utils.get_rows_from_collection(collection_soup)
-    if len(rows) != 7:
-        raise AssertionError()
+    assert len(rows) == 7
 
 
 def test_get_collection_infos(collection_soup):
     infos = collection_utils.get_collection_infos(collection_soup)
-    if len(infos) != 7:
-        print(len(infos))
-        raise AssertionError()
+    assert len(infos) == 7
 
     test_infos = [
         {

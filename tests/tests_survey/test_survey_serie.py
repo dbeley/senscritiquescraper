@@ -2,15 +2,12 @@ from senscritiquescraper.utils import survey_utils
 
 
 def test_get_category_from_survey(survey_serie):
-    if survey_utils.get_category_from_survey(survey_serie) != "series":
-        raise AssertionError()
+    assert survey_utils.get_category_from_survey(survey_serie) == "series"
 
 
 def test_get_rows_from_survey(survey_serie):
     rows = survey_utils.get_rows_from_survey(survey_serie)
-    if len(rows) != 75:
-        print(len(rows))
-        raise AssertionError()
+    assert len(rows) == 75
 
 
 def test_get_infos_from_survey(survey_serie):
@@ -18,8 +15,6 @@ def test_get_infos_from_survey(survey_serie):
 
     infos = survey_utils.get_survey_infos(survey_serie, category)
 
-    if len(infos) != 75:
-        raise AssertionError()
+    assert len(infos) == 75
 
-    if infos[0]["Title"] != "Friends":
-        raise AssertionError()
+    assert infos[0]["Title"] == "Friends"
