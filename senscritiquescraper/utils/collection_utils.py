@@ -79,7 +79,7 @@ def get_collection_infos(soup: BeautifulSoup) -> List[Dict]:
     """Returns a list of dict containing an user collection information."""
     rows = get_rows_from_collection(soup)
     list_infos = []
-    for index, row in enumerate(rows, 1):
+    for row in rows:
         info = get_row_infos(row)
         if info:
             list_infos.append(info)

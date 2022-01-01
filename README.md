@@ -48,7 +48,7 @@ Some examples of the API usage are included in the examples folder:
 
 ### First method (installing the senscritiquescraper package)
 
-```
+```bash
 git clone https://github.com/dbeley/senscritiquescraper
 cd senscritiquescraper
 python setup.py install
@@ -57,7 +57,7 @@ python examples/scr_get_work_urls.py -h
 
 ### Second method (installing with pipenv)
 
-```
+```bash
 git clone https://github.com/dbeley/senscritiquescraper
 cd senscritiquescraper
 pipenv install '-e .'
@@ -83,7 +83,7 @@ Extract the URL of the first result for the query "Star Wars" with a filter on m
 >>> json.dumps(sw_infos, indent=4, ensure_ascii=False)
 ```
 
-```
+```text
 {
     "Title": "La Guerre des Étoiles",
     "URL": "https://www.senscritique.com/film/La_Guerre_des_Etoiles/365132",
@@ -126,7 +126,7 @@ Extract the user collection of the user 34nUBqnQvCSkt:
 >>> df_user_collection[["Title", "Year", "Category", "User Rating", "Number of Ratings", "Average Rating"]]
 ```
 
-```
+```text
                                       Title  Year    Category User Rating Number of Ratings Average Rating
 0                                   Walk On  1974       Track          10                54            7.5
 1                           Symphonie no. 9  1984       Music          10              1068            9.1
@@ -146,7 +146,7 @@ Extract infos about the Top 111 Musique topchart:
 >>> df_topchart = pd.DataFrame(topchart)
 >>> df_topchart[['Title', 'Year', 'Average Rating', 'Number of Ratings']]
 ```
-```
+```text
                                          Title  Year Average Rating Number of Ratings
 0    Dvořák: Symphonie No. 9 / Smetana: Moldau  1985            9.1               428
 1                                      Requiem  1971            9.1              1548
@@ -170,7 +170,7 @@ Extract infos about all the RPG video games listed on Senscritique:
 >>> df_list_work = pd.DataFrame(list_work)
 >>> df_list_work[["Title", "Year", "Genre", "Average Rating"]]
 ```
-```
+```text
                                      Title  Year                                              Genre Average Rating
 0                        Madô Monogatari I  None                                                                 -
 1                           Arc The Lad II  2012                                                RPG            7.1
@@ -194,7 +194,7 @@ Extract infos about the best movies of 2021 survey:
 >>> df_survey = pd.DataFrame(survey)
 >>> df_survey[["Title", "Year", "Producer"]]
 ```
-```
+```text
                           Title  Year                                     Producer
 0               Malcolm & Marie  2021                                 Sam Levinson
 1  Zack Snyder's Justice League  2021                                  Zack Snyder
@@ -214,13 +214,13 @@ Some scripts using the API are provided in the examples folder.
 
 For each scripts, you can see the help and the available options with the `-h` argument.
 
-```
+```bash
 python scr_get_topchart.py -h
 ```
 
 #### scr_get_topchart
 
-```
+```text
 usage: scr_get_topchart.py [-h] [--debug] [-u URL] [main_argument]
 
 Senscritique scraper for a top list/chart.
@@ -236,11 +236,11 @@ optional arguments:
 
 #### scr_get_collection
 
-```
+```bash
 python scr_get_collection.py -h
 ```
 
-```
+```text
 usage: scr_get_collection.py [-h] [--debug] [-u USER] [main_argument]
 
 Senscritique scraper for an user collection.
@@ -256,11 +256,11 @@ optional arguments:
 
 #### scr_get_survey
 
-```
+```bash
 python scr_get_survey.py -h
 ```
 
-```
+```text
 usage: scr_get_survey.py [-h] [--debug] [-u URL] [main_argument]
 
 Senscritique scraper for a survey.
@@ -276,11 +276,11 @@ optional arguments:
 
 #### scr_get_list_work
 
-```
+```bash
 python scr_get_list_work.py -h
 ```
 
-```
+```text
 usage: scr_get_list_work.py [-h] [--debug] [-u URL] [main_argument]
 
 Senscritique scraper for a list_work.
@@ -296,11 +296,11 @@ optional arguments:
 
 #### scr_get_work_details
 
-```
+```bash
 python scr_get_work_details.py -h
 ```
 
-```
+```text
 usage: scr_get_work_details.py [-h] [--debug] [-f FILE] [main_argument]
 
 This script will export in a csv file one or several works from senscritique contained in a csv file (it will use the 'URL' field).
@@ -320,7 +320,7 @@ Running `scr_get_work_url -f FILE` will extract the first search result on Sensc
 
 It's useful to be used with the `scr_get_work_details.py` script.
 
-```
+```text
 usage: scr_get_work_urls.py [-h] [--debug] [-f FILE] [-g GENRE] [main_argument]
 
 This script will export in a file the URLs for the first Senscritique search result of each search terms contained in another file.
