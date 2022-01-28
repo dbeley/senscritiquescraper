@@ -208,8 +208,8 @@ def get_platforms(row: element.Tag) -> Optional[str]:
     """Get the supported platforms of a row."""
     try:
         platforms = (
-            row.find_all("p", {"class": "elco-baseline"})[1]
-            .text.split("sur")[-1]
+            row.find("span", {"class": "elco-gamesystem"})
+            .text
             .strip()
         )
     except Exception as e:
