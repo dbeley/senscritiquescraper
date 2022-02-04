@@ -205,14 +205,24 @@ def get_number_of_seasons(row: element.Tag) -> Optional[str]:
 
 
 def get_platforms(row: element.Tag) -> Optional[str]:
-    """Get the supported platforms of a row."""
+    """Get the supported platforms of a collection row."""
+    try:
+        platforms = row.find("span", {"class": "elco-gamesystem"}).text.strip()
+    except Exception as e:
+        logger.debug("Function get_platforms for row %s : %s", row, e)
+        platforms = None
+    return platforms
+
+
+def get_topchart_platforms(row: element.Tag) -> Optional[str]:
+    """Get the supported platforms of a topchart row."""
     try:
         platforms = (
-            row.find("span", {"class": "elco-gamesystem"})
-            .text
+            row.find_all("p", {"class": "elco-baseline"})[1]
+            .text.split("sur")[-1]
             .strip()
         )
     except Exception as e:
-        logger.debug("Function get_platforms for row %s : %s", row, e)
+        logger.debug("Function get_topchart_platforms for row %s : %s", row, e)
         platforms = None
     return platforms
