@@ -7,7 +7,7 @@ def test_get_work_bd(work_object_bd):
 def test_rating_work_bd(work_object_bd):
     main_rating = work_object_bd.get_main_rating()
     assert isinstance(main_rating, str)
-    assert main_rating == "5.8"
+    assert main_rating == "5.7"
 
 
 def test_rating_details_work_bd(work_object_bd):

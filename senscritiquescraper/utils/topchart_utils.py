@@ -30,7 +30,9 @@ def get_topchart_infos(soup: BeautifulSoup, category: str) -> List[Dict]:
     elif category == "series":
         return [series_utils.get_series_infos_from_row(x) for x in rows]
     elif category == "jeuxvideo":
-        return [videogames_utils.get_videogames_infos_from_row(x) for x in rows]
+        return [
+            videogames_utils.get_videogames_topchart_infos_from_row(x) for x in rows
+        ]
     elif category == "livres":
         return [books_utils.get_books_infos_from_row(x) for x in rows]
     elif category == "bd":
