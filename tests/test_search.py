@@ -34,7 +34,7 @@ def test_search_term_advanced_2():
 def test_search_term_position():
     search_term = "XTC"
     url_search = "https://www.senscritique.com/search?q=XTC"
-    url = "https://www.senscritique.com/album/English_Settlement/1373616"
+    url = "https://www.senscritique.com/album/Drums_and_Wires/6011492"
     soup = Senscritique.utils.get_soup(url_search)
 
     assert Senscritique.search_utils.get_search_url(search_term) == url_search
