@@ -31,8 +31,8 @@ def test_cover_url_work_film(work_object_film):
     assert isinstance(cover_url, str)
 
     assert (
-        cover_url
-        == "https://media.senscritique.com/media/000018537250/160/Le_Chant_du_loup.jpg"
+        cover_url.lower()
+        == "https://media.senscritique.com/media/000018537250/160/le_chant_du_loup.jpg"
     )
 
 

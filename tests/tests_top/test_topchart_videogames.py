@@ -48,10 +48,7 @@ def test_videogame_developer(topchart_row_videogame):
 
 def test_videogame_platforms(topchart_row_videogame):
     platforms = row_utils.get_topchart_platforms(topchart_row_videogame)
-    assert (
-        platforms
-        == "Nintendo 64, GameCube, Wii, Wii U, Nintendo 3DS et Nintendo Switch"
-    )
+    assert platforms == "Nintendo 64, GameCube, Wii, Wii U et Nintendo 3DS"
 
 
 def test_videogame_description(topchart_row_videogame):

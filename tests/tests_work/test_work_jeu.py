@@ -7,7 +7,8 @@ def test_get_work_jeu(work_object_jeu):
 def test_rating_work_jeu(work_object_jeu):
     main_rating = work_object_jeu.get_main_rating()
     assert isinstance(main_rating, str)
-    assert main_rating == "6.5"
+    assert main_rating[0] == "6"
+    assert main_rating[1] == "."
 
 
 def test_rating_details_work_jeu(work_object_jeu):

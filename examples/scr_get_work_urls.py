@@ -7,7 +7,7 @@ the following content:
     Mëkanïk Dëstruktïẁ Kömmandöh
 
 Running scr_get_work_url -f senscritique.txt
-will extract the first search result on Senscritique
+will extract the best search result on Senscritique
 for each line of the text file
 and export it in a new file senscritique_URLs.csv.
 
@@ -40,7 +40,7 @@ def main():
 
     list_urls = []
     for index, row in df.iterrows():
-        if url_search := Senscritique.get_url(row[0], rank=1, genre=args.genre):
+        if url_search := Senscritique.get_url_closest_match(row[0], genre=args.genre):
             list_urls.append({"URL": url_search})
 
     df_urls = pd.DataFrame(list_urls)

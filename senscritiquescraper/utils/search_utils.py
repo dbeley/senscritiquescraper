@@ -1,4 +1,5 @@
 import logging
+import difflib
 from bs4 import BeautifulSoup
 from typing import Optional
 import urllib.parse
@@ -41,3 +42,32 @@ def get_search_result(soup: BeautifulSoup, position: int) -> Optional[str]:
     except Exception as e:
         logger.error(e)
         return None
+
+
+def get_closest_search_result(soup: BeautifulSoup, search_term: str) -> Optional[str]:
+    """Returns the closest result of the results for the search_term."""
+    try:
+        list_candidates = []
+        for url in [
+            x.find_all("a")[1]["href"]
+            for x in soup.find_all(
+                "div", {"class": "ProductListItem__Container-sc-1ci68b-0"}
+            )
+        ]:
+            name = url.split("/")[-2:][0].replace("_", " ") if url else None
+            list_candidates.append({"url": url, "name": name})
+        closest_match = difflib.get_close_matches(
+            search_term, [x["name"] for x in list_candidates], 1
+        )
+        if closest_match:
+            closest_dict = next(
+                (item for item in list_candidates if item["name"] == closest_match[0]),
+                None,
+            )
+            result = closest_dict.get("url") if closest_dict else None
+        else:
+            result = list_candidates[0].get("url")
+        logger.info(f"{result=}")
+        return result
+    except Exception as e:
+        raise Exception(e)
