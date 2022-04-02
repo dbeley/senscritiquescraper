@@ -129,6 +129,8 @@ def test_get_collection_infos(collection_soup):
         },
     ]
 
+    assert infos[3]["Platforms"] == "Wii U"
+
     for index, info in enumerate(infos):
         print(info)
         print(test_infos[index])

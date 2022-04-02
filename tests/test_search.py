@@ -1,34 +1,39 @@
+import pytest
 from senscritiquescraper import Senscritique
 
 
 def test_search_term_simple():
     search_term = "Melancholia"
-    url_search = "https://www.senscritique.com/search?q=Melancholia"
-    url = "https://www.senscritique.com/film/Melancholia/411823"
+    url_search = (
+        "https://www.senscritique.com/search?q=Melancholia&categories[0][0]=Films"
+    )
+    url = "https://www.senscritique.com/film/melancholia/411823"
     soup = Senscritique.utils.get_soup(url_search)
 
-    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_url(search_term, "Films") == url_search
     assert Senscritique.search_utils.get_search_result(soup, 1).lower() == url.lower()
 
 
 def test_search_term_advanced():
-    search_term = "astérix, tome 17"
-    url_search = "https://www.senscritique.com/search?q=ast%C3%A9rix%2C+tome+17"
+    search_term = "le domaine des dieux astérix, tome 17"
+    url_search = "https://www.senscritique.com/search?q=le+domaine+des+dieux+ast%C3%A9rix%2C+tome+17"
     url = "https://www.senscritique.com/bd/Le_Domaine_des_dieux_Asterix_tome_17/369196"
     soup = Senscritique.utils.get_soup(url_search)
 
     assert Senscritique.search_utils.get_search_url(search_term) == url_search
     assert Senscritique.search_utils.get_search_result(soup, 1) == url
+    assert Senscritique.search_utils.get_closest_search_result(soup, search_term) == url
 
 
 def test_search_term_advanced_2():
     search_term = "Mëkanïk Dëstruktïẁ Kömmandöh"
-    url_search = "https://www.senscritique.com/search?q=M%C3%ABkan%C3%AFk+D%C3%ABstrukt%C3%AF%E1%BA%81+K%C3%B6mmand%C3%B6h"
+    url_search = "https://www.senscritique.com/search?q=M%C3%ABkan%C3%AFk+D%C3%ABstrukt%C3%AF%E1%BA%81+K%C3%B6mmand%C3%B6h&categories[0][0]=Albums"
     url = "https://www.senscritique.com/album/Mekanik_Destrukti_Koemmandoeh/5905267"
     soup = Senscritique.utils.get_soup(url_search)
 
-    assert Senscritique.search_utils.get_search_url(search_term) == url_search
+    assert Senscritique.search_utils.get_search_url(search_term, "Albums") == url_search
     assert Senscritique.search_utils.get_search_result(soup, 1) == url
+    assert Senscritique.search_utils.get_closest_search_result(soup, search_term) == url
 
 
 def test_search_term_position():
@@ -43,6 +48,10 @@ def test_search_term_position():
         Senscritique.search_utils.get_search_result(soup, 12) == url
         or Senscritique.search_utils.get_search_result(soup, 12) == url_2
     )
+    assert (
+        Senscritique.search_utils.get_closest_search_result(soup, "Drums and Wires")
+        == url
+    )
 
 
 def test_search_term_genre():
@@ -56,3 +65,5 @@ def test_search_term_genre():
         Senscritique.search_utils.get_search_url(search_term, genre=genre) == url_search
     )
     assert Senscritique.search_utils.get_search_result(soup, 1) == url
+    # Exception raised because no closest match where found
+    assert Senscritique.search_utils.get_closest_search_result(soup, search_term) == url

@@ -1,4 +1,5 @@
 import logging
+import difflib
 from .utils import (
     collection_utils,
     list_work_utils,
@@ -199,3 +200,24 @@ def get_url(search_term: str, rank: int = 1, genre: str = None) -> Optional[str]
         exit()
 
     return search_utils.get_search_result(soup, 1)
+
+
+def get_url_closest_match(search_term: str, genre: str = None) -> Optional[str]:
+    """Return the result URL for the search term that is also the closest match to the search term.
+    Genre can be changed (default None. Possible choices in ["Morceaux", "Albums",
+    "Films", "Livres", "Séries", "BD", "Jeux"])
+
+    Returns:
+        URL of the first result.
+    """
+
+    logger.info("Search term: %s", search_term)
+
+    url = search_utils.get_search_url(search_term, genre)
+
+    try:
+        soup = utils.get_soup(url)
+    except Exception as e:
+        raise Exception(e)
+
+    return search_utils.get_closest_search_result(soup, search_term)
