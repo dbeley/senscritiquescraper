@@ -133,7 +133,7 @@ def test_get_collection_infos(collection_soup):
         print(info)
         print(test_infos[index])
         assert info["Title"] == test_infos[index]["Title"]
-        assert info["URL"] == test_infos[index]["URL"]
+        assert info["URL"].lower() == test_infos[index]["URL"].lower()
         assert info["Year"] == test_infos[index]["Year"]
         assert info["User Action"] == test_infos[index]["User Action"]
         assert info["User Rating"] == test_infos[index]["User Rating"]

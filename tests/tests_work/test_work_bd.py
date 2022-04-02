@@ -7,7 +7,9 @@ def test_get_work_bd(work_object_bd):
 def test_rating_work_bd(work_object_bd):
     main_rating = work_object_bd.get_main_rating()
     assert isinstance(main_rating, str)
-    assert main_rating == "5.8"
+    assert main_rating[0] == "5"
+    assert main_rating[1] == "."
+    assert len(main_rating) == 3
 
 
 def test_rating_details_work_bd(work_object_bd):
@@ -30,8 +32,8 @@ def test_cover_url_work_bd(work_object_bd):
     cover_url = work_object_bd.get_cover_url()
     assert isinstance(cover_url, str)
     assert (
-        cover_url
-        == "https://media.senscritique.com/media/000018928960/160/La_Fille_de_Vercingetorix_Asterix_tome_38.jpg"
+        cover_url.lower()
+        == "https://media.senscritique.com/media/000018928960/160/La_Fille_de_Vercingetorix_Asterix_tome_38.jpg".lower()
     )
 
 

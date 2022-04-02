@@ -30,8 +30,8 @@ def test_cover_url_work_morceau(work_object_morceau):
     cover_url = work_object_morceau.get_cover_url()
     assert isinstance(cover_url, str)
     assert (
-        cover_url
-        == "https://media.senscritique.com/media/000000194665/160/Les_Copains_d_abord.jpg"
+        cover_url.lower()
+        == "https://media.senscritique.com/media/000000194665/160/Les_Copains_dabord.jpg".lower()
     )
 
 

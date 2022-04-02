@@ -31,8 +31,8 @@ def test_cover_url_work_album(work_object_album):
     assert isinstance(cover_url, str)
 
     assert (
-        cover_url
-        == "https://media.senscritique.com/media/000018720065/160/Spiritual_Instinct.jpg"
+        cover_url.lower()
+        == "https://media.senscritique.com/media/000018720065/160/Spiritual_Instinct.jpg".lower()
     )
 
 

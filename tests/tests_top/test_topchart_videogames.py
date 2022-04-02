@@ -43,7 +43,7 @@ def test_videogame_genre(topchart_row_videogame):
 
 def test_videogame_developer(topchart_row_videogame):
     developer = row_utils.get_producer(topchart_row_videogame)
-    assert developer == "Nintendo EAD, Nintendo"
+    assert developer == "Nintendo EAD, SRD, Nintendo"
 
 
 def test_videogame_platforms(topchart_row_videogame):

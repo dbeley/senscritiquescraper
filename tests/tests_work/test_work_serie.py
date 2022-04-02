@@ -30,8 +30,8 @@ def test_cover_url_work_serie(work_object_serie):
     cover_url = work_object_serie.get_cover_url()
     assert isinstance(cover_url, str)
     assert (
-        cover_url
-        == "https://media.senscritique.com/media/000016972804/160/The_Handmaid_s_Tale_La_Servante_ecarlate.jpg"
+        cover_url.lower()
+        == "https://media.senscritique.com/media/000016972804/160/The_Handmaid_s_Tale_La_Servante_ecarlate.jpg".lower()
     )
 
 
