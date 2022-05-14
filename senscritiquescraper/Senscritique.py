@@ -27,7 +27,7 @@ def get_user_collection(user: str = None, url: str = None) -> List[Dict]:
     """
 
     if user:
-        url = f"https://www.senscritique.com/{user}/collection/all/all/all/all/all/all/all/all/all/page-1"
+        url = f"https://old.senscritique.com/{user}/collection/all/all/all/all/all/all/all/all/all/page-1"
     if not url:
         raise Exception("user or url not defined")
     logger.info("URL : %s", url)
@@ -137,13 +137,13 @@ def get_list_work(url: str) -> List[Dict]:
     """Export a list of work from its url in a list of dictionaries.
 
     Parameters:
-        url (str): Url (example : https://www.senscritique.com/films/oeuvres)
-        Available urls : - https://www.senscritique.com/films/oeuvres
-                         - https://www.senscritique.com/series/oeuvres
-                         - https://www.senscritique.com/jeuxvideo/oeuvres
-                         - https://www.senscritique.com/livres/oeuvres
-                         - https://www.senscritique.com/jeuxvideo/oeuvres
-                         - https://www.senscritique.com/musique/oeuvres
+        url (str): Url (example : https://old.senscritique.com/films/oeuvres)
+        Available urls : - https://old.senscritique.com/films/oeuvres
+                         - https://old.senscritique.com/series/oeuvres
+                         - https://old.senscritique.com/jeuxvideo/oeuvres
+                         - https://old.senscritique.com/livres/oeuvres
+                         - https://old.senscritique.com/jeuxvideo/oeuvres
+                         - https://old.senscritique.com/musique/oeuvres
 
     Returns:
         List of dictionaries containing the work informations.

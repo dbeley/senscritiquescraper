@@ -18,9 +18,9 @@ def get_search_url(search_term: str, genre: str = None) -> str:
     """Returns the senscritique search URL for a search term."""
     search_term_sanitized = sanitize_text(search_term)
     if genre not in GENRE_CHOICES:
-        url = f"https://www.senscritique.com/search?q={search_term_sanitized}"
+        url = f"https://old.senscritique.com/search?q={search_term_sanitized}"
     else:
-        url = f"https://www.senscritique.com/search?q={search_term_sanitized}&categories[0][0]={genre}"
+        url = f"https://old.senscritique.com/search?q={search_term_sanitized}&categories[0][0]={genre}"
     return url
 
 

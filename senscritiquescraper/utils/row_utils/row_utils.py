@@ -73,7 +73,7 @@ def get_url(row: element.Tag) -> Optional[str]:
     """Get the url of a row."""
     try:
         return (
-            "https://www.senscritique.com"
+            "https://old.senscritique.com"
             + row.find("a", {"class": "elco-anchor"})["href"]
         )
     except Exception as e:

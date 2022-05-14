@@ -28,12 +28,12 @@ def test_music_release_date(topchart_row_music):
 
 def test_music_genre(topchart_row_music):
     genre = row_utils.get_baseline_1(topchart_row_music)
-    assert genre == "Art rock et prog rock"
+    assert genre == "Art rock etprog rock"
 
 
 def test_music_number_songs(topchart_row_music):
     length = row_utils.get_number_of_seasons(topchart_row_music)
-    assert length == "10  morceaux"
+    assert length == "10 morceaux"
 
 
 def test_music_cover(topchart_row_music):

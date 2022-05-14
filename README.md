@@ -3,6 +3,8 @@
 ![Build Status](https://github.com/dbeley/senscritiquescraper/workflows/CI/badge.svg)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e95f1fcf5d2e47b480a3ef9c98ce1b1d)](https://www.codacy.com/app/dbeley/senscritiquescraper?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dbeley/senscritiquescraper&amp;utm_campaign=Badge_Grade)
 
+> :warning: Senscritique recently got a redesign but most of the old website is still available at old.senscritique.com. For now senscritiquescraper is only compatible with old.senscritique.com (search function seems to be deactivated).
+
 API to extract data from senscritique.com.
 
 Example of what can be extracted:

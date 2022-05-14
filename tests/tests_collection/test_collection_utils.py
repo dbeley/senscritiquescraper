@@ -23,7 +23,7 @@ def test_get_collection_infos(collection_soup):
     test_infos = [
         {
             "Title": "Walk On",
-            "URL": "https://www.senscritique.com/morceau/Walk_On/4939111",
+            "URL": "https://old.senscritique.com/morceau/Walk_On/4939111",
             "Year": "1974",
             "User Action": "Rated",
             "User Rating": "10",
@@ -31,7 +31,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "Symphonie no. 9",
-            "URL": "https://www.senscritique.com/album/Symphonie_no_9/1315369",
+            "URL": "https://old.senscritique.com/album/Symphonie_no_9/1315369",
             "Year": "1984",
             "Release Date": "Sortie : 1984",
             "Genre": "Romantique et classique",
@@ -47,7 +47,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "Berserk, tome 13",
-            "URL": "https://www.senscritique.com/bd/Berserk_tome_13/17431552",
+            "URL": "https://old.senscritique.com/bd/Berserk_tome_13/17431552",
             "Original Title": "Beruseruku",
             "Year": "1997",
             "Release Date": "Sortie : 3 mai 2006",
@@ -62,7 +62,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "The Legend of Zelda: Breath of the Wild",
-            "URL": "https://www.senscritique.com/jeuvideo/The_Legend_of_Zelda_Breath_of_the_Wild/10416244",
+            "URL": "https://old.senscritique.com/jeuvideo/The_Legend_of_Zelda_Breath_of_the_Wild/10416244",
             "Original Title": "Zeruda no densetsu: Buresu obu za wairudo",
             "Year": "2017",
             "Release Date": "Sortie : 3 mars 2017",
@@ -79,7 +79,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "Sur écoute",
-            "URL": "https://www.senscritique.com/serie/Sur_ecoute/155448",
+            "URL": "https://old.senscritique.com/serie/Sur_ecoute/155448",
             "Original Title": "The Wire",
             "Year": "2002",
             "Release Date": "Première diffusion : 2 juin 2002",
@@ -96,7 +96,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "Douze Hommes en colère",
-            "URL": "https://www.senscritique.com/film/Douze_Hommes_en_colere/370894",
+            "URL": "https://old.senscritique.com/film/Douze_Hommes_en_colere/370894",
             "Original Title": "12 Angry Men",
             "Year": "1957",
             "Release Date": "Sortie : 10 avril 1957",
@@ -113,7 +113,7 @@ def test_get_collection_infos(collection_soup):
         },
         {
             "Title": "1984",
-            "URL": "https://www.senscritique.com/livre/1984/245854",
+            "URL": "https://old.senscritique.com/livre/1984/245854",
             "Original Title": "Nineteen Eighty-Four",
             "Year": "1949",
             "Release Date": "Sortie : 8 juin 1949",

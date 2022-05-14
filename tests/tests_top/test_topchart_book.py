@@ -38,7 +38,7 @@ def test_book_cover(topchart_row_book):
 
 def test_book_genre(topchart_row_book):
     genre = row_utils.get_baseline_1(topchart_row_book)
-    assert genre == "Roman et science-fiction"
+    assert genre == "Roman etscience-fiction"
 
 
 def test_book_author(topchart_row_book):

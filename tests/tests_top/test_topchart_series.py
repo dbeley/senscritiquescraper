@@ -43,7 +43,7 @@ def test_series_cover(topchart_row_series):
 
 def test_series_genre(topchart_row_series):
     genre = row_utils.get_genre(topchart_row_series)
-    assert genre == "Policier, drame et thriller"
+    assert genre == "Policier,drame etthriller"
 
 
 def test_series_author(topchart_row_series):
