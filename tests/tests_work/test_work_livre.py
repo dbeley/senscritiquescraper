@@ -29,7 +29,7 @@ def test_year_work_livre(work_object_livre):
 def test_cover_url_work_livre(work_object_livre):
     cover_url = work_object_livre.get_cover_url()
     assert isinstance(cover_url, str)
-    assert cover_url == "https://media.senscritique.com/media/000018573228/160/Soif.jpg"
+    assert cover_url == "https://media.senscritique.com/media/000018573228/160/soif.jpg"
 
 
 def test_complementary_infos_work_livre(work_object_livre):
