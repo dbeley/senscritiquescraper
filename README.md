@@ -8,28 +8,28 @@
 API to extract data from senscritique.com.
 
 Example of what can be extracted:
-- topchart: <https://www.senscritique.com/films/tops/top111>
-- collection: <https://www.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
-- survey: <https://www.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>
-- list_work: <https://www.senscritique.com/films/oeuvres>
-- work: <https://www.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
+- topchart: <https://old.senscritique.com/films/tops/top111>
+- collection: <https://old.senscritique.com/34nUBqnQvCSkt/collection/all/all/all/all/all/all/all/all/all/page-1>
+- survey: <https://old.senscritique.com/top/resultats/Les_meilleurs_films_de_2019/2301802>
+- list_work: <https://old.senscritique.com/films/oeuvres>
+- work: <https://old.senscritique.com/film/J_ai_perdu_mon_corps/39006031>
 
 Type of work:
-- film: <https://www.senscritique.com/films>
-- serie: <https://www.senscritique.com/series>
-- jeu: <https://www.senscritique.com/jeuxvideo>
-- livre: <https://www.senscritique.com/livres>
-- bd: <https://www.senscritique.com/bd>
-- album: <https://www.senscritique.com/musique>
+- film: <https://old.senscritique.com/films>
+- serie: <https://old.senscritique.com/series>
+- jeu: <https://old.senscritique.com/jeuxvideo>
+- livre: <https://old.senscritique.com/livres>
+- bd: <https://old.senscritique.com/bd>
+- album: <https://old.senscritique.com/musique>
 - morceau: individual tracks from an album
 
 The "list_work" urls are difficult to find, here are the one for each genre where the subgenres can be accessed:
-- <https://www.senscritique.com/films/oeuvres>
-- <https://www.senscritique.com/series/oeuvres>
-- <https://www.senscritique.com/jeuxvideo/oeuvres>
-- <https://www.senscritique.com/livres/oeuvres>
-- <https://www.senscritique.com/bd/oeuvres>
-- <https://www.senscritique.com/musique/oeuvres>
+- <https://old.senscritique.com/films/oeuvres>
+- <https://old.senscritique.com/series/oeuvres>
+- <https://old.senscritique.com/jeuxvideo/oeuvres>
+- <https://old.senscritique.com/livres/oeuvres>
+- <https://old.senscritique.com/bd/oeuvres>
+- <https://old.senscritique.com/musique/oeuvres>
 
 Some examples of the API usage are included in the examples folder:
 - `scr_get_collection.py`: Extract the collection of an user.
